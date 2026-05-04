@@ -285,20 +285,29 @@ A:不应直接返回。应(1)截断 + 摘要;(2)写入对象存储返回链接;(
 若你环境版本不同,可改为 StructuredTool.from_function 。
 
 ```python
-from typing import Literal from langchain_core.tools import tool
+from typing import Literal
+
+from langchain_core.tools import tool
+
+
 @tool
 def search_product(
-query: str,
-category: Literal["book", "electronics", ""] = "",
+    query: str,
+    category: Literal['book', 'electronics', ''] = '',
 ) -> str:
-"""在电商站内搜索商品。用户要找商品、比价、看库存时用;不要用于闲聊。
-Args:
-query: 搜索关键词
-category: 可选类目过滤,不知道则留空"""
-# 伪实现
-return f"[dummy] results for {query!r} in {category or 'all'}"
+    """在电商站内搜索商品。用户要找商品、比价、看库存时用;不要用于闲聊。
+
+    Args:
+        query: 搜索关键词
+        category: 可选类目过滤,不知道则留空
+    """
+    # 伪实现
+    return f"[dummy] results for {query!r} in {category or 'all'}"
+
+
 # 注册到 Agent 时通常传入 tools=[search_product]
-# 例如 create_react_agent(llm, tools=[search_product], --.)
+# 例如 create_react_agent(llm, tools=[search_product], ...)
+```
 
 追问应对
 问:@tool  和手写  StructuredTool  区别?
