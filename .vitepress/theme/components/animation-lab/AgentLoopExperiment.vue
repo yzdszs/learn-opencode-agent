@@ -236,12 +236,21 @@ function isPathActive(id: string) {
   transform: translate(-50%, -50%);
 }
 
-.packet-user-planner { animation: packet-user-planner 1.45s ease-in-out infinite; }
-.packet-planner-llm { animation: packet-planner-llm 1.45s ease-in-out infinite; }
-.packet-llm-tool { animation: packet-llm-tool 1.45s ease-in-out infinite; }
-.packet-tool-observation { animation: packet-tool-observation 1.45s ease-in-out infinite; }
-.packet-memory-llm { animation: packet-memory-llm 1.45s ease-in-out infinite; }
-.packet-llm-final { animation: packet-llm-final 1.45s ease-in-out infinite; }
+.packet-user-planner,
+.packet-planner-llm,
+.packet-llm-tool,
+.packet-tool-observation,
+.packet-memory-llm,
+.packet-llm-final {
+  animation: packet-travel 1.45s ease-in-out infinite;
+}
+
+.packet-user-planner { --packet-start-x: 13%; --packet-start-y: 48%; --packet-end-x: 32%; --packet-end-y: 34%; }
+.packet-planner-llm { --packet-start-x: 35%; --packet-start-y: 32%; --packet-end-x: 61%; --packet-end-y: 31%; }
+.packet-llm-tool { --packet-start-x: 65%; --packet-start-y: 34%; --packet-end-x: 82%; --packet-end-y: 57%; }
+.packet-tool-observation { --packet-start-x: 82%; --packet-start-y: 60%; --packet-end-x: 54%; --packet-end-y: 69%; }
+.packet-memory-llm { --packet-start-x: 27%; --packet-start-y: 68%; --packet-end-x: 61%; --packet-end-y: 35%; }
+.packet-llm-final { --packet-start-x: 65%; --packet-start-y: 30%; --packet-end-x: 88%; --packet-end-y: 25%; }
 .packet-unknown {
   left: 50%;
   top: 50%;
@@ -283,40 +292,10 @@ function isPathActive(id: string) {
   }
 }
 
-@keyframes packet-user-planner {
+@keyframes packet-travel {
   0%,
-  100% { left: 13%; top: 48%; }
-  50% { left: 32%; top: 34%; }
-}
-
-@keyframes packet-planner-llm {
-  0%,
-  100% { left: 35%; top: 32%; }
-  50% { left: 61%; top: 31%; }
-}
-
-@keyframes packet-llm-tool {
-  0%,
-  100% { left: 65%; top: 34%; }
-  50% { left: 82%; top: 57%; }
-}
-
-@keyframes packet-tool-observation {
-  0%,
-  100% { left: 82%; top: 60%; }
-  50% { left: 54%; top: 69%; }
-}
-
-@keyframes packet-memory-llm {
-  0%,
-  100% { left: 27%; top: 68%; }
-  50% { left: 61%; top: 35%; }
-}
-
-@keyframes packet-llm-final {
-  0%,
-  100% { left: 65%; top: 30%; }
-  50% { left: 88%; top: 25%; }
+  100% { left: var(--packet-start-x); top: var(--packet-start-y); }
+  50% { left: var(--packet-end-x); top: var(--packet-end-y); }
 }
 
 @media (max-width: 780px) {
@@ -448,6 +427,13 @@ function isPathActive(id: string) {
     left: 86%;
     top: 10%;
   }
+
+  .packet-user-planner { --packet-start-x: 22%; --packet-start-y: 36%; --packet-end-x: 50%; --packet-end-y: 18%; }
+  .packet-planner-llm { --packet-start-x: 50%; --packet-start-y: 18%; --packet-end-x: 78%; --packet-end-y: 39%; }
+  .packet-llm-tool { --packet-start-x: 78%; --packet-start-y: 39%; --packet-end-x: 78%; --packet-end-y: 59%; }
+  .packet-tool-observation { --packet-start-x: 78%; --packet-start-y: 59%; --packet-end-x: 50%; --packet-end-y: 80%; }
+  .packet-memory-llm { --packet-start-x: 22%; --packet-start-y: 59%; --packet-end-x: 78%; --packet-end-y: 39%; }
+  .packet-llm-final { --packet-start-x: 78%; --packet-start-y: 39%; --packet-end-x: 86%; --packet-end-y: 10%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -462,34 +448,14 @@ function isPathActive(id: string) {
     transition: none;
   }
 
-  .packet-user-planner {
-    left: 32%;
-    top: 34%;
-  }
-
-  .packet-planner-llm {
-    left: 61%;
-    top: 31%;
-  }
-
-  .packet-llm-tool {
-    left: 82%;
-    top: 57%;
-  }
-
-  .packet-tool-observation {
-    left: 54%;
-    top: 69%;
-  }
-
-  .packet-memory-llm {
-    left: 61%;
-    top: 35%;
-  }
-
+  .packet-user-planner,
+  .packet-planner-llm,
+  .packet-llm-tool,
+  .packet-tool-observation,
+  .packet-memory-llm,
   .packet-llm-final {
-    left: 88%;
-    top: 25%;
+    left: var(--packet-end-x);
+    top: var(--packet-end-y);
   }
 }
 </style>
