@@ -9,21 +9,21 @@ hero:
       text: OpenCode 拆解
       link: /00-what-is-ai-agent/
     - theme: alt
-      text: 发现中心
-      link: /discover/
-    - theme: alt
       text: 实践篇
       link: /practice/
     - theme: alt
       text: 中级篇
       link: /intermediate/
     - theme: alt
-      text: 动画实验室
-      link: /animation-lab/
-    - theme: alt
       text: Star 支持本书
       link: https://github.com/qqzhangyanhua/learn-opencode-agent
       target: _blank
+    - theme: alt
+      text: 发现中心
+      link: /discover/
+    - theme: alt
+      text: 动画实验室
+      link: /animation-lab/
 ---
 
 <HomeSeriesStrip />

@@ -25,10 +25,17 @@ const emit = defineEmits<{
       {{ collapsed ? '展开 Trace' : '收起 Trace' }}
     </button>
 
-    <div v-if="collapsed" id="trace-panel-content" class="trace-rail">
+    <button
+      v-if="collapsed"
+      id="trace-panel-content"
+      class="trace-rail"
+      type="button"
+      :aria-label="`展开 Trace：${step.title}`"
+      @click="emit('toggle')"
+    >
       <span>{{ stepIndex + 1 }}/{{ totalSteps }}</span>
       <strong>{{ step.title }}</strong>
-    </div>
+    </button>
 
     <div v-else id="trace-panel-content" class="trace-body">
       <p class="trace-kicker">TRACE {{ stepIndex + 1 }} / {{ totalSteps }}</p>
@@ -98,8 +105,19 @@ const emit = defineEmits<{
   gap: 10px;
   justify-items: center;
   margin-top: 14px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
   min-width: 0;
   text-align: center;
+}
+
+.trace-rail:focus-visible {
+  outline: 3px solid rgba(56, 189, 248, 0.44);
+  outline-offset: 4px;
 }
 
 .trace-rail span {
