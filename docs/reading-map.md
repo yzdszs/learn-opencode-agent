@@ -29,6 +29,7 @@ description: 这本电子书的推荐阅读顺序与章节关系图
 - [查看学习路径](/learning-paths/) - 用三条路线卡片决定理论 / 实践 / 工程专题的推进顺序
 - [直接进入实践篇](/practice/) - 如果你更想先跑项目
 - [进入中级篇](/intermediate/) - 当你已经做过基础闭环并开始关心工程问题
+- [企业 Agent 落地线](/enterprise-agent/) - 如果你想把 Agent 从 Demo 推到企业内部真实系统
 
 ## 核心概念快速定位
 
@@ -210,6 +211,26 @@ Agent 的核心执行流程：
 
 - 与OpenCode 拆解：路线 E 以OpenCode 拆解的运行时主链路作为起点，在掌握原理后直接跳到中级篇的专题桥段，避免重复初级内容
 - 与实践篇：让你把在实践篇中遇到的工程挑战与中级篇的专题讲解串联，形成“原理+实践”的复合认知路径
+
+### 路线 F：从 Demo 走向企业 Agent
+
+适合：
+
+- 已经做过基础 Agent Demo，准备接入真实企业系统
+- 关心权限、数据隔离、审计、人机协同和生产化边界
+- 希望按 IMS Copilot 案例复用一套企业 Agent 设计检查方法
+
+建议顺序：
+
+1. [从零设计企业 Agent：专栏介绍](/enterprise-agent/)
+2. [阅读指南](/enterprise-agent/reading-guide)
+3. [E00：企业 Agent 的四个本质约束](/enterprise-agent/e00-enterprise-agent-constraints)
+4. [E02：企业 Agent 的意图分层](/enterprise-agent/e02-intent-layering)
+5. [E06：权限过滤与引用溯源](/enterprise-agent/e06-permission-filtering-and-citation)
+6. [E11：Human-in-the-Loop 节点设计](/enterprise-agent/e11-human-in-the-loop-design)
+7. [设计检查表](/enterprise-agent/design-checklist)
+
+这条线的目标，是把“能演示的 Agent”推进到“能进入企业系统边界内运行的 Agent”。
 
 ## 章节依赖关系
 

@@ -210,6 +210,7 @@ export default withMermaid(defineConfig({
           { text: 'Claude Code 架构思维', link: '/claude-code/' },
           { text: 'Claude Code 源码业务流', link: '/new-claude/' },
           { text: 'Hermes Agent 拆解', link: '/hermes-agent/' },
+          { text: '从零设计企业 Agent', link: '/enterprise-agent/' },
         ],
       },
       { text: '本书仓库', link: bookRepository },
@@ -369,6 +370,66 @@ export default withMermaid(defineConfig({
             { text: '附录 U：Plugin Hook 注入边界', link: '/hermes-agent/附录U-Plugin-Hook注入边界专章-Hermes为什么不开放system-prompt给插件随便改' },
             { text: '附录 AC：Skill 与 Plugin 加载', link: '/hermes-agent/附录AC-Skill与Plugin加载专章-Hermes怎么把可扩展能力接进运行时而不是简单读目录拼提示词' },
             { text: '附录 Z：Gateway Agent Cache', link: '/hermes-agent/附录Z-Gateway-Agent-Cache专章-Hermes为什么在消息平台里宁可缓存整颗AIAgent也不愿每条消息重建一次运行时' },
+          ]
+        },
+      ],
+      '/enterprise-agent/': [
+        { text: '← 返回首页', link: '/' },
+        { text: '专栏介绍', link: '/enterprise-agent/' },
+        { text: '阅读指南', link: '/enterprise-agent/reading-guide' },
+        { text: '设计检查表', link: '/enterprise-agent/design-checklist' },
+        {
+          text: '模块 0：企业 Agent 约束',
+          collapsed: false,
+          items: [
+            { text: 'E00：企业 Agent 的四个本质约束', link: '/enterprise-agent/e00-enterprise-agent-constraints' },
+            { text: 'E01：从 Chatbot 到 Enterprise Agent', link: '/enterprise-agent/e01-chatbot-to-enterprise-agent' },
+          ]
+        },
+        {
+          text: '模块 1：意图识别与混合查询',
+          collapsed: false,
+          items: [
+            { text: 'E02：企业 Agent 的意图分层', link: '/enterprise-agent/e02-intent-layering' },
+            { text: 'E03：混合查询的拆解策略', link: '/enterprise-agent/e03-hybrid-query-decomposition' },
+            { text: 'E04：多意图与澄清问题设计', link: '/enterprise-agent/e04-clarification-design' },
+          ]
+        },
+        {
+          text: '模块 2：Policy Q&A 与企业知识库',
+          collapsed: false,
+          items: [
+            { text: 'E05：企业知识库不是普通 RAG', link: '/enterprise-agent/e05-enterprise-knowledge-base' },
+            { text: 'E06：权限过滤与引用溯源', link: '/enterprise-agent/e06-permission-filtering-and-citation' },
+            { text: 'E07：Text-to-SQL 风险与管控', link: '/enterprise-agent/e07-text-to-sql-risk-control' },
+          ]
+        },
+        {
+          text: '模块 3：个人数据与操作引导',
+          collapsed: false,
+          items: [
+            { text: 'E08：个人数据查询的上下文设计', link: '/enterprise-agent/e08-personal-data-context' },
+            { text: 'E09：操作引导不是文档问答', link: '/enterprise-agent/e09-operation-guide-is-not-document-qa' },
+            { text: 'E10：从意图到可执行步骤', link: '/enterprise-agent/e10-intent-to-executable-steps' },
+          ]
+        },
+        {
+          text: '模块 4：流程自动化与人机协同',
+          collapsed: false,
+          items: [
+            { text: 'E11：Human-in-the-Loop 节点设计', link: '/enterprise-agent/e11-human-in-the-loop-design' },
+            { text: 'E12：高风险工具调用的确认机制', link: '/enterprise-agent/e12-high-risk-tool-confirmation' },
+            { text: 'E13：流程状态、回滚与补偿', link: '/enterprise-agent/e13-workflow-state-rollback-compensation' },
+          ]
+        },
+        {
+          text: '模块 5：生产化收口',
+          collapsed: false,
+          items: [
+            { text: 'E14：企业 Agent 的观测与审计', link: '/enterprise-agent/e14-observability-and-audit' },
+            { text: 'E15：成本、性能与模型路由', link: '/enterprise-agent/e15-cost-performance-model-routing' },
+            { text: 'E16：从项目到平台', link: '/enterprise-agent/e16-project-to-platform-evolution' },
+            { text: 'E17：IMS Copilot 设计复盘', link: '/enterprise-agent/e17-ims-copilot-retrospective' },
           ]
         },
       ],

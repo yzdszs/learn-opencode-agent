@@ -39,6 +39,12 @@ const series = [
     desc: '真实商业 Agent 产品的工程实现：架构、记忆与多模态接入',
     href: '/hermes-agent/',
   },
+  {
+    label: '企业 Agent 实战',
+    title: '从零设计企业 Agent',
+    desc: '以 IMS AI Copilot 为主线，拆解企业 Agent 的约束、能力与生产化',
+    href: '/enterprise-agent/',
+  },
 ]
 </script>
 
@@ -59,7 +65,7 @@ const series = [
 
 .series-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -143,6 +149,12 @@ html.dark .series-card {
 html.dark .series-card:hover {
   border-color: rgba(99, 102, 241, 0.45);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 960px) {
+  .series-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 768px) {

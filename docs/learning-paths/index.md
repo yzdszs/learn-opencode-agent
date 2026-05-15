@@ -38,6 +38,7 @@ roleDescription: 把全站内容整理成可执行的路线卡片，帮助读者
 - [回到发现中心](/discover/)
 - [直接去实践篇](/practice/)
 - [直接去中级篇](/intermediate/)
+- [企业 Agent 落地线](/enterprise-agent/)
 - [回到阅读地图](/reading-map)
 
 <LearningPath />

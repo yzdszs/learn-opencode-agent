@@ -43,6 +43,7 @@ const seriesLinks = [
   { href: '/claude-code/', title: 'Claude Code 架构思维', desc: '从源码视角理解 Claude Code 的设计决策' },
   { href: '/new-claude/', title: 'Claude Code 源码业务流', desc: '逐层拆解核心业务链路与执行流' },
   { href: '/hermes-agent/', title: 'Hermes Agent 拆解', desc: '真实商业 Agent 产品的工程实现分析' },
+  { href: '/enterprise-agent/', title: '从零设计企业 Agent', desc: '以 IMS Copilot 为主线拆解企业 Agent 落地路径' },
 ]
 </script>
 
@@ -68,7 +69,7 @@ const seriesLinks = [
 
 .explore-grid-3 {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -135,7 +136,7 @@ html.dark .explore-card.series:hover {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .explore-grid-3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
