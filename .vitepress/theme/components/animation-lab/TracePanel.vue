@@ -256,4 +256,10 @@ const emit = defineEmits<{
     white-space: nowrap;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .trace-toggle {
+    transition-duration: 0.01ms;
+  }
+}
 </style>

@@ -397,11 +397,11 @@ function isPathActive(id: string) {
 
 @media (max-width: 520px) {
   .agent-loop-canvas {
-    grid-template-rows: minmax(310px, 1fr) auto;
-    min-height: 430px;
+    grid-template-rows: minmax(360px, 1fr) auto;
+    min-height: 480px;
   }
 
-  .runtime-scene { min-height: 310px; }
+  .runtime-scene { min-height: 360px; }
 
   .runtime-paths {
     inset: 4% -16% 2%;
@@ -410,43 +410,43 @@ function isPathActive(id: string) {
   }
 
   .runtime-node {
-    width: 86px;
+    width: 96px;
     min-height: 54px;
   }
 
   .node-user {
-    left: 18%;
-    top: 28%;
+    left: 22%;
+    top: 36%;
   }
 
   .node-planner {
     left: 50%;
-    top: 19%;
+    top: 18%;
   }
 
   .node-llm {
     left: 78%;
-    top: 31%;
+    top: 39%;
   }
 
   .node-tool {
     left: 78%;
-    top: 51%;
+    top: 59%;
   }
 
   .node-observation {
     left: 50%;
-    top: 60%;
+    top: 80%;
   }
 
   .node-memory {
-    left: 20%;
-    top: 50%;
+    left: 22%;
+    top: 59%;
   }
 
   .node-final {
-    left: 80%;
-    top: 12%;
+    left: 86%;
+    top: 10%;
   }
 }
 

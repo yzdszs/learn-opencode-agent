@@ -296,6 +296,10 @@ html {
   color: var(--vp-c-text-1);
 }
 
+.animation-lab-page .VPDoc .content-container {
+  max-width: 1040px;
+}
+
 /* 段落间距 */
 .VPDoc .vp-doc p {
   margin-top: 0;
