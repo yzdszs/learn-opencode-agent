@@ -36,6 +36,7 @@
 const navLinks = [
   { href: '/discover/', title: '发现中心', desc: '了解站点结构、技术栈和学习收益' },
   { href: '/learning-paths/', title: '学习路径', desc: '按目标选择完整学习路线' },
+  { href: '/animation-lab/', title: '动画实验室', desc: '用系统运动观察 Agent 概念如何运行' },
   { href: '/reading-map', title: '阅读地图', desc: '按主题或难度选择阅读顺序' },
 ]
 

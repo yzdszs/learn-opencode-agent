@@ -203,6 +203,7 @@ export default withMermaid(defineConfig({
     nav: [
       { text: '实践篇', link: '/practice/', activeMatch: '/practice/' },
       { text: '中级篇', link: '/intermediate/', activeMatch: '/intermediate/' },
+      { text: '动画实验室', link: '/animation-lab/', activeMatch: '/animation-lab/' },
       { text: '面试题专区', link: '/interview/', activeMatch: '/interview/' },
       {
         text: '专栏',
@@ -626,6 +627,7 @@ export default withMermaid(defineConfig({
       ],
       '/': [
         { text: '发现中心', link: '/discover/' },
+        { text: '动画实验室', link: '/animation-lab/' },
         { text: '实践篇总览', link: '/practice/' },
         { text: '中级篇导读', link: '/intermediate/' },
         { text: '面试题专区', link: '/interview/' },
@@ -699,6 +701,12 @@ export default withMermaid(defineConfig({
             { text: '第32章：性能与成本', link: '/intermediate/32-performance-cost/' },
           ]
         },
+      ],
+      '/animation-lab/': [
+        { text: '← 返回首页', link: '/' },
+        { text: '实验室首页', link: '/animation-lab/' },
+        { text: '回到实践篇', link: '/practice/' },
+        { text: '进入中级篇', link: '/intermediate/' },
       ],
     },
 

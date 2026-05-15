@@ -13,14 +13,14 @@ const readingMapContent = readFileSync(path.join(rootDir, 'docs', 'reading-map.m
 
 const issues = []
 
-const requiredNavTexts = ['实践篇', '中级篇', '面试题专区', '专栏', '本书仓库']
+const requiredNavTexts = ['实践篇', '中级篇', '动画实验室', '面试题专区', '专栏', '本书仓库']
 for (const text of requiredNavTexts) {
   if (!configContent.includes(`text: '${text}'`)) {
     issues.push(`顶层导航缺少「${text}」入口`)
   }
 }
 
-const rootSidebarLinks = ['/discover/', '/practice/', '/intermediate/', '/interview/']
+const rootSidebarLinks = ['/discover/', '/animation-lab/', '/practice/', '/intermediate/', '/interview/']
 for (const link of rootSidebarLinks) {
   if (!configContent.includes(`link: '${link}'`)) {
     issues.push(`根侧边栏缺少 ${link} 入口`)
@@ -33,6 +33,10 @@ if (!configContent.includes(`link: '/interview/fundamentals/'`)) {
 
 if (!configContent.includes(`link: '/interview/bagua/'`)) {
   issues.push('面试题专区侧边栏缺少八股文入口')
+}
+
+if (!configContent.includes(`'/animation-lab/': [`)) {
+  issues.push('缺少动画实验室侧边栏配置')
 }
 
 if (!practiceContent.includes('/learning-paths/')) {
