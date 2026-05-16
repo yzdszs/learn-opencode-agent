@@ -132,7 +132,7 @@ function isPathActive(id: string) {
   display: grid;
   gap: 4px;
   place-items: center;
-  width: clamp(86px, 13vw, 130px);
+  width: clamp(86px, 10vw, 104px);
   min-height: 66px;
   padding: 11px 12px;
   border: 1px solid rgba(148, 163, 184, 0.36);
@@ -179,38 +179,38 @@ function isPathActive(id: string) {
 }
 
 .node-user {
-  left: 11%;
+  left: 16%;
   top: 48%;
 }
 
 .node-planner {
-  left: 33%;
-  top: 32%;
+  left: 38%;
+  top: 26%;
 }
 
 .node-llm {
-  left: 63%;
-  top: 32%;
+  left: 64%;
+  top: 34%;
 }
 
 .node-tool {
-  left: 84%;
+  left: 78%;
   top: 58%;
 }
 
 .node-observation {
-  left: 52%;
-  top: 69%;
+  left: 54%;
+  top: 70%;
 }
 
 .node-memory {
-  left: 25%;
+  left: 28%;
   top: 70%;
 }
 
 .node-final {
-  left: 90%;
-  top: 25%;
+  left: 88%;
+  top: 15%;
 }
 
 .motion-packet {
@@ -245,12 +245,12 @@ function isPathActive(id: string) {
   animation: packet-travel 1.45s ease-in-out infinite;
 }
 
-.packet-user-planner { --packet-start-x: 13%; --packet-start-y: 48%; --packet-end-x: 32%; --packet-end-y: 34%; }
-.packet-planner-llm { --packet-start-x: 35%; --packet-start-y: 32%; --packet-end-x: 61%; --packet-end-y: 31%; }
-.packet-llm-tool { --packet-start-x: 65%; --packet-start-y: 34%; --packet-end-x: 82%; --packet-end-y: 57%; }
-.packet-tool-observation { --packet-start-x: 82%; --packet-start-y: 60%; --packet-end-x: 54%; --packet-end-y: 69%; }
-.packet-memory-llm { --packet-start-x: 27%; --packet-start-y: 68%; --packet-end-x: 61%; --packet-end-y: 35%; }
-.packet-llm-final { --packet-start-x: 65%; --packet-start-y: 30%; --packet-end-x: 88%; --packet-end-y: 25%; }
+.packet-user-planner { --packet-start-x: 16%; --packet-start-y: 48%; --packet-end-x: 38%; --packet-end-y: 26%; }
+.packet-planner-llm { --packet-start-x: 38%; --packet-start-y: 26%; --packet-end-x: 64%; --packet-end-y: 34%; }
+.packet-llm-tool { --packet-start-x: 64%; --packet-start-y: 34%; --packet-end-x: 78%; --packet-end-y: 58%; }
+.packet-tool-observation { --packet-start-x: 78%; --packet-start-y: 58%; --packet-end-x: 54%; --packet-end-y: 70%; }
+.packet-memory-llm { --packet-start-x: 28%; --packet-start-y: 70%; --packet-end-x: 64%; --packet-end-y: 34%; }
+.packet-llm-final { --packet-start-x: 64%; --packet-start-y: 34%; --packet-end-x: 88%; --packet-end-y: 15%; }
 .packet-unknown {
   left: 50%;
   top: 50%;
