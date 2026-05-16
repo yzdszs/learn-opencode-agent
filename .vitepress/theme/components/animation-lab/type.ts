@@ -48,6 +48,10 @@ export type ExperimentKind =
   | 'context-compaction'
   | 'error-recovery-loop'
   | 'provider-routing-fallback'
+  | 'rag-retrieval-flow'
+  | 'human-approval-gate'
+  | 'structured-output-validation'
+  | 'streaming-interrupt-control'
 
 export type ExperimentStatus = 'available' | 'coming-soon'
 

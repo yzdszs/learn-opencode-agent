@@ -8,6 +8,10 @@ import ToolPermissionGateExperiment from './ToolPermissionGateExperiment.vue'
 import ContextCompactionExperiment from './ContextCompactionExperiment.vue'
 import ErrorRecoveryLoopExperiment from './ErrorRecoveryLoopExperiment.vue'
 import ProviderRoutingFallbackExperiment from './ProviderRoutingFallbackExperiment.vue'
+import RagRetrievalFlowExperiment from './RagRetrievalFlowExperiment.vue'
+import HumanApprovalGateExperiment from './HumanApprovalGateExperiment.vue'
+import StructuredOutputValidationExperiment from './StructuredOutputValidationExperiment.vue'
+import StreamingInterruptControlExperiment from './StreamingInterruptControlExperiment.vue'
 import { animationLabExperiments } from '../../data/animation-lab-experiments'
 
 const selectedExperimentId = ref(animationLabExperiments[0]?.id ?? '')
@@ -41,7 +45,7 @@ onUnmounted(() => {
     <header class="lab-hero">
       <p class="lab-eyebrow">Animation Lab</p>
       <h1>动画实验室</h1>
-      <p>用系统运动展示 Agent 概念，把抽象机制拆成可观察、可暂停、可复盘的运行轨迹。</p>
+      <p>用系统运动展示 Agent 运行闭环、工具边界、上下文管理、RAG、结构化输出、流式控制和模型路由，把抽象机制拆成可观察、可暂停、可复盘的轨迹。</p>
     </header>
 
     <section class="lab-workspace" aria-label="动画实验库">
@@ -71,6 +75,22 @@ onUnmounted(() => {
             />
             <ProviderRoutingFallbackExperiment
               v-else-if="selectedCatalogItem.experiment.kind === 'provider-routing-fallback'"
+              :step="step"
+            />
+            <RagRetrievalFlowExperiment
+              v-else-if="selectedCatalogItem.experiment.kind === 'rag-retrieval-flow'"
+              :step="step"
+            />
+            <HumanApprovalGateExperiment
+              v-else-if="selectedCatalogItem.experiment.kind === 'human-approval-gate'"
+              :step="step"
+            />
+            <StructuredOutputValidationExperiment
+              v-else-if="selectedCatalogItem.experiment.kind === 'structured-output-validation'"
+              :step="step"
+            />
+            <StreamingInterruptControlExperiment
+              v-else-if="selectedCatalogItem.experiment.kind === 'streaming-interrupt-control'"
               :step="step"
             />
           </template>

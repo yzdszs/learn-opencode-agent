@@ -14,6 +14,10 @@ const animationDataFiles = [
   ['context-compaction.ts', 'contextCompactionExperiment'],
   ['error-recovery-loop.ts', 'errorRecoveryLoopExperiment'],
   ['provider-routing-fallback.ts', 'providerRoutingFallbackExperiment'],
+  ['rag-retrieval-flow.ts', 'ragRetrievalFlowExperiment'],
+  ['human-approval-gate.ts', 'humanApprovalGateExperiment'],
+  ['structured-output-validation.ts', 'structuredOutputValidationExperiment'],
+  ['streaming-interrupt-control.ts', 'streamingInterruptControlExperiment'],
 ]
 
 const [dataContent, indexContent, ...animationFileContents] = await Promise.all([
@@ -31,6 +35,10 @@ const requiredExperimentIds = [
   'context-compaction',
   'error-recovery-loop',
   'provider-routing-fallback',
+  'rag-retrieval-flow',
+  'human-approval-gate',
+  'structured-output-validation',
+  'streaming-interrupt-control',
 ]
 
 requiredExperimentIds.forEach((id, index) => {
@@ -66,6 +74,10 @@ for (const exportName of [
   'contextCompactionExperiment',
   'errorRecoveryLoopExperiment',
   'providerRoutingFallbackExperiment',
+  'ragRetrievalFlowExperiment',
+  'humanApprovalGateExperiment',
+  'structuredOutputValidationExperiment',
+  'streamingInterruptControlExperiment',
 ]) {
   if (dataContent.includes(`export const ${exportName}`)) {
     issues.push(`聚合文件不应直接管理动画数据: ${exportName}`)
@@ -79,6 +91,10 @@ for (const componentName of [
   'ContextCompactionExperiment',
   'ErrorRecoveryLoopExperiment',
   'ProviderRoutingFallbackExperiment',
+  'RagRetrievalFlowExperiment',
+  'HumanApprovalGateExperiment',
+  'StructuredOutputValidationExperiment',
+  'StreamingInterruptControlExperiment',
 ]) {
   if (!indexContent.includes(componentName)) {
     issues.push(`AnimationLabIndex 未接入画布组件: ${componentName}`)
