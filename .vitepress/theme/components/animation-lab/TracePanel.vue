@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { ExperimentStep, TraceEventStatus } from './type'
+import type { ExperimentStep } from './type'
 
 const props = defineProps<{
   steps: ExperimentStep[]
@@ -14,15 +14,6 @@ const emit = defineEmits<{
 }>()
 
 const currentStep = computed(() => props.steps[props.stepIndex])
-
-const accumulatedEvents = computed(() => {
-  return props.steps.slice(0, props.stepIndex + 1).flatMap((step, i) =>
-    step.traceEvents.map((event) => ({
-      ...event,
-      status: (i < props.stepIndex ? 'done' : event.status) as TraceEventStatus,
-    }))
-  )
-})
 </script>
 
 <template>
@@ -55,7 +46,7 @@ const accumulatedEvents = computed(() => {
       <p>{{ currentStep?.description }}</p>
       <ol class="trace-events">
         <li
-          v-for="event in accumulatedEvents"
+          v-for="event in currentStep?.traceEvents ?? []"
           :key="event.id"
           :class="['trace-event', event.type, event.status]"
         >

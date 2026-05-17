@@ -45,7 +45,15 @@ export const multiAgentDispatchExperiment: Experiment = {
       description: '计划 Agent 把互不阻塞的子任务分派给实现和审查链路，让多个角色并行推进。',
       activeNodes: ['planner', 'coder', 'reviewer'],
       activePaths: ['planner-coder', 'planner-reviewer'],
-      packet: { from: 'planner', to: 'coder', label: 'task' },
+      packets: [
+        { from: 'planner', to: 'coder', label: 'impl', kind: 'data', delay: 0 },
+        { from: 'planner', to: 'reviewer', label: 'spec', kind: 'control', delay: 220 },
+      ],
+      nodeBadges: { coder: 'busy', reviewer: 'busy' },
+      nodeStates: { coder: 'busy', reviewer: 'busy' },
+      annotations: [
+        { at: 'planner', text: 'fan-out × 2', tone: 'info' },
+      ],
       traceEvents: [
         { id: 'work-split', type: 'thinking', title: '拆分并行任务', detail: '划定子任务边界和依赖关系，分配各 Agent 的责任范围，释放互不阻塞的并行路径。', status: 'active' },
       ],

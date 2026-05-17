@@ -184,6 +184,56 @@
   color: #f8fafc;
 }
 
+.flow-node.state-busy {
+  border-color: rgba(251, 191, 36, 0.62);
+}
+
+.flow-node.state-fail {
+  border-color: rgba(248, 113, 113, 0.78);
+  box-shadow:
+    0 0 0 1px rgba(248, 113, 113, 0.22),
+    0 0 24px rgba(248, 113, 113, 0.28),
+    0 16px 34px rgba(2, 6, 23, 0.42);
+}
+
+.flow-node.state-done {
+  border-color: rgba(52, 211, 153, 0.66);
+}
+
+.node-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  z-index: 4;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.92);
+  color: #062032;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.6rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-transform: uppercase;
+  box-shadow: 0 6px 14px rgba(2, 6, 23, 0.42);
+}
+
+.flow-node.state-fail .node-badge {
+  background: rgba(248, 113, 113, 0.94);
+  color: #2a0510;
+}
+
+.flow-node.state-busy .node-badge {
+  background: rgba(251, 191, 36, 0.94);
+  color: #2a1a04;
+}
+
+.flow-node.state-done .node-badge {
+  background: rgba(52, 211, 153, 0.94);
+  color: #042214;
+}
+
 .motion-memory .flow-node.active {
   animation: memory-node 1.8s ease-in-out infinite;
 }
@@ -239,39 +289,43 @@
   line-height: 1;
   text-transform: uppercase;
   transform: translate(-50%, -50%);
-  animation: flow-packet 1.45s ease-in-out infinite;
+  animation-name: flow-packet;
+  animation-duration: var(--packet-duration, 1.45s);
+  animation-delay: var(--packet-delay, 0ms);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
 .motion-memory .flow-packet {
   border-radius: 8px 999px 999px 8px;
-  animation: memory-packet 1.7s ease-in-out infinite;
+  animation-name: memory-packet;
 }
 
 .motion-dispatch .flow-packet {
   min-width: 42px;
   border-radius: 6px;
-  animation: dispatch-packet 1.4s ease-in-out infinite;
+  animation-name: dispatch-packet;
 }
 
 .motion-gate .flow-packet {
   border-radius: 999px 999px 8px 8px;
-  animation: gate-packet 1.65s ease-in-out infinite;
+  animation-name: gate-packet;
 }
 
 .motion-compact .flow-packet {
   border-radius: 8px;
-  animation: compact-packet 1.65s ease-in-out infinite;
+  animation-name: compact-packet;
 }
 
 .motion-recover .flow-packet {
   border-radius: 999px 8px 999px 8px;
-  animation: recover-packet 1.35s ease-in-out infinite;
+  animation-name: recover-packet;
 }
 
 .motion-route .flow-packet {
   min-width: 48px;
   border-radius: 6px;
-  animation: route-packet 1.4s ease-in-out infinite;
+  animation-name: route-packet;
 }
 
 .flow-step-summary {

@@ -1,0 +1,91 @@
+.packet-kind-success {
+  --packet-border: rgba(52, 211, 153, 0.82);
+  --packet-bg: rgba(6, 78, 59, 0.95);
+  --packet-text: #d1fae5;
+}
+
+.packet-kind-error {
+  --packet-border: rgba(248, 113, 113, 0.85);
+  --packet-bg: rgba(127, 29, 29, 0.94);
+  --packet-text: #fee2e2;
+}
+
+.packet-kind-control {
+  --packet-border: rgba(125, 211, 252, 0.78);
+  --packet-bg: rgba(7, 89, 133, 0.94);
+  --packet-text: #e0f2fe;
+}
+
+.packet-kind-token {
+  --packet-border: rgba(196, 181, 253, 0.78);
+  --packet-bg: rgba(76, 29, 149, 0.92);
+  --packet-text: #ede9fe;
+}
+
+.flow-annotation {
+  position: absolute;
+  left: var(--ann-x);
+  top: var(--ann-y);
+  z-index: 4;
+  padding: 4px 9px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-radius: 6px;
+  background: rgba(2, 6, 23, 0.94);
+  color: #e5edf7;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2;
+  transform: translate(calc(-50% + 56px), calc(-50% - 42px));
+  white-space: nowrap;
+  pointer-events: none;
+  animation: ann-pop 0.32s ease-out both;
+  box-shadow: 0 8px 18px rgba(2, 6, 23, 0.46);
+}
+
+.flow-annotation::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-left: 1px solid rgba(148, 163, 184, 0.4);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(2, 6, 23, 0.94);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.flow-annotation.tone-warn,
+.flow-annotation.tone-warn::before {
+  border-color: rgba(251, 191, 36, 0.78);
+}
+
+.flow-annotation.tone-warn {
+  color: #fef3c7;
+}
+
+.flow-annotation.tone-fail,
+.flow-annotation.tone-fail::before {
+  border-color: rgba(248, 113, 113, 0.82);
+}
+
+.flow-annotation.tone-fail {
+  color: #fee2e2;
+}
+
+.flow-annotation.tone-success,
+.flow-annotation.tone-success::before {
+  border-color: rgba(52, 211, 153, 0.82);
+}
+
+.flow-annotation.tone-success {
+  color: #d1fae5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-annotation {
+    animation: none;
+  }
+}

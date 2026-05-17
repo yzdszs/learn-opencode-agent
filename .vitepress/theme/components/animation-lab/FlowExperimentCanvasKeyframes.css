@@ -4,6 +4,18 @@
   }
 }
 
+@keyframes ann-pop {
+  from {
+    opacity: 0;
+    transform: translate(calc(-50% + 56px), calc(-50% - 30px)) scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(calc(-50% + 56px), calc(-50% - 42px)) scale(1);
+  }
+}
+
 @keyframes flow-packet {
   0% {
     left: var(--packet-start-x);

@@ -55,7 +55,16 @@ export const ragRetrievalFlowExperiment: Experiment = {
       description: '检索器从知识库召回候选片段，先扩大覆盖面，再交给重排层筛选。',
       activeNodes: ['retriever', 'reranker'],
       activePaths: ['retriever-reranker'],
-      packet: { from: 'retriever', to: 'reranker', label: 'docs' },
+      packets: [
+        { from: 'retriever', to: 'reranker', label: 'doc·1', kind: 'data', delay: 0, duration: 1300 },
+        { from: 'retriever', to: 'reranker', label: 'doc·2', kind: 'data', delay: 160, duration: 1300 },
+        { from: 'retriever', to: 'reranker', label: 'doc·3', kind: 'data', delay: 320, duration: 1300 },
+      ],
+      nodeBadges: { retriever: 'k=8', reranker: 'scoring' },
+      nodeStates: { retriever: 'done', reranker: 'busy' },
+      annotations: [
+        { at: 'retriever', text: 'recall 8 / cap 32', tone: 'info' },
+      ],
       traceEvents: [
         { id: 'candidates-returned', type: 'observation', title: '召回候选', detail: '检索器返回命中文档和片段，附带初始相关度评分，移交重排层进一步筛选。', status: 'active' },
       ],
@@ -66,7 +75,12 @@ export const ragRetrievalFlowExperiment: Experiment = {
       description: '重排层按相关度和可信度筛选证据，只把可支撑答案的片段留下。',
       activeNodes: ['reranker', 'evidence'],
       activePaths: ['reranker-evidence'],
-      packet: { from: 'reranker', to: 'evidence', label: 'top' },
+      packet: { from: 'reranker', to: 'evidence', label: 'top-3', kind: 'success' },
+      nodeStates: { reranker: 'done', evidence: 'busy' },
+      nodeBadges: { reranker: 'top=3', evidence: '3 chunks' },
+      annotations: [
+        { at: 'reranker', text: 'drop 5 low-score', tone: 'warn' },
+      ],
       traceEvents: [
         { id: 'evidence-ranked', type: 'repair', title: '筛选证据', detail: '按相关度和可信度重排证据，保留高质量片段，过滤低质命中，缩短注入长度。', status: 'active' },
       ],
@@ -77,7 +91,12 @@ export const ragRetrievalFlowExperiment: Experiment = {
       description: '模型基于证据生成答案，并保留引用来源，避免只凭内部记忆回答。',
       activeNodes: ['evidence', 'answer'],
       activePaths: ['evidence-answer'],
-      packet: { from: 'evidence', to: 'answer', label: 'cite' },
+      packet: { from: 'evidence', to: 'answer', label: 'cite', kind: 'token' },
+      nodeStates: { evidence: 'done', answer: 'done' },
+      nodeBadges: { answer: '3 citations' },
+      annotations: [
+        { at: 'answer', text: '✓ grounded', tone: 'success' },
+      ],
       traceEvents: [
         { id: 'answer-cited', type: 'output', title: '带引用生成', detail: '基于证据生成答案，标注引用来源，明确未被知识库覆盖的回答边界。', status: 'active' },
       ],

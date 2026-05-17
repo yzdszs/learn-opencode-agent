@@ -20,6 +20,14 @@ const animationDataFiles = [
   ['human-approval-gate.ts', 'humanApprovalGateExperiment'],
   ['structured-output-validation.ts', 'structuredOutputValidationExperiment'],
   ['streaming-interrupt-control.ts', 'streamingInterruptControlExperiment'],
+  ['task-planning-queue.ts', 'taskPlanningQueueExperiment'],
+  ['file-diff-patch-flow.ts', 'fileDiffPatchFlowExperiment'],
+  ['test-failure-repair.ts', 'testFailureRepairExperiment'],
+  ['prompt-assembly-pipeline.ts', 'promptAssemblyPipelineExperiment'],
+  ['agent-collaboration-merge.ts', 'agentCollaborationMergeExperiment'],
+  ['browser-automation-check.ts', 'browserAutomationCheckExperiment'],
+  ['safety-boundary-filter.ts', 'safetyBoundaryFilterExperiment'],
+  ['artifact-delivery-review.ts', 'artifactDeliveryReviewExperiment'],
 ]
 
 const [dataContent, indexContent, componentFileNames, ...animationFileContents] = await Promise.all([
@@ -42,6 +50,14 @@ const requiredExperimentIds = [
   'human-approval-gate',
   'structured-output-validation',
   'streaming-interrupt-control',
+  'task-planning-queue',
+  'file-diff-patch-flow',
+  'test-failure-repair',
+  'prompt-assembly-pipeline',
+  'agent-collaboration-merge',
+  'browser-automation-check',
+  'safety-boundary-filter',
+  'artifact-delivery-review',
 ]
 
 function getLayoutSignature(content) {
@@ -104,13 +120,19 @@ function validateExperimentReferences(fileName, content) {
     }
   }
 
-  for (const [, from, to] of content.matchAll(/packet: \{ from: '([^']+)', to: '([^']+)', label:/g)) {
+  for (const [, from, to] of content.matchAll(/\{ from: '([^']+)', to: '([^']+)', label:/g)) {
     if (!nodeIds.has(from)) {
       issues.push(`${fileName} packet 引用了不存在的起点节点: ${from}`)
     }
 
     if (!nodeIds.has(to)) {
       issues.push(`${fileName} packet 引用了不存在的终点节点: ${to}`)
+    }
+  }
+
+  for (const [, at] of content.matchAll(/\{ at: '([^']+)', text:/g)) {
+    if (!nodeIds.has(at)) {
+      issues.push(`${fileName} annotation 引用了不存在的节点: ${at}`)
     }
   }
 }
@@ -125,7 +147,7 @@ if (dataContent.includes(`status: 'coming-soon'`)) {
   issues.push('动画实验室仍包含 coming-soon 状态')
 }
 
-const availableCount = dataContent.match(/status: 'available'/g)?.length ?? 0
+const availableCount = dataContent.match(/^\s*entry\(/gm)?.length ?? 0
 if (availableCount !== requiredExperimentIds.length) {
   issues.push(`可用实验数量应为 ${requiredExperimentIds.length}，当前为 ${availableCount}`)
 }
@@ -169,21 +191,12 @@ for (const exportName of [
   }
 }
 
-for (const componentName of [
-  'ContextMemoryExperiment',
-  'MultiAgentDispatchExperiment',
-  'ToolPermissionGateExperiment',
-  'ContextCompactionExperiment',
-  'ErrorRecoveryLoopExperiment',
-  'ProviderRoutingFallbackExperiment',
-  'RagRetrievalFlowExperiment',
-  'HumanApprovalGateExperiment',
-  'StructuredOutputValidationExperiment',
-  'StreamingInterruptControlExperiment',
-]) {
-  if (!indexContent.includes(componentName)) {
-    issues.push(`AnimationLabIndex 未接入画布组件: ${componentName}`)
-  }
+if (!indexContent.includes('FlowExperimentCanvas')) {
+  issues.push('AnimationLabIndex 必须直接渲染 FlowExperimentCanvas 共享画布')
+}
+
+if (indexContent.includes('lab-sidebar') || indexContent.includes('lab-nav-item') || indexContent.includes('lab-switcher') || indexContent.includes('lab-chip')) {
+  issues.push('动画实验室页面不应包含内置实验切换 UI，统一由 VitePress 左侧菜单经 URL hash 切换')
 }
 
 for (const motion of ['memory', 'dispatch', 'gate', 'compact', 'recover', 'route']) {
@@ -208,10 +221,6 @@ animationDataFiles.forEach(([fileName], index) => {
 
   layoutOwners.set(signature, fileName)
 })
-
-if (indexContent.includes('lab-sidebar') || indexContent.includes('lab-nav-item')) {
-  issues.push('动画实验室内容区不应包含实验菜单')
-}
 
 if (!indexContent.includes('lab-stage')) {
   issues.push('动画实验室需要保留右侧舞台 lab-stage')

@@ -126,8 +126,8 @@ docs/book/
 │   │       ├── practice-projects.ts        # 实践项目定义（28 个项目的完整元数据）
 │   │       ├── practice-source-files.ts    # 实践项目源文件映射
 │   │       ├── discovery-content.ts        # 发现中心内容路由定义
-│   │       ├── animation-lab-experiments.ts # 动画实验室实验目录（11 个实验）
-│   │       └── animation-lab/             # 实验数据文件（11 个 .ts）
+│   │       ├── animation-lab-experiments.ts # 动画实验室实验目录（19 个实验）
+│   │       └── animation-lab/             # 实验数据文件（19 个 .ts）
 │   │           ├── agent-loop.ts
 │   │           ├── context-memory-flow.ts
 │   │           ├── multi-agent-dispatch.ts
@@ -138,7 +138,15 @@ docs/book/
 │   │           ├── rag-retrieval-flow.ts
 │   │           ├── human-approval-gate.ts
 │   │           ├── structured-output-validation.ts
-│   │           └── streaming-interrupt-control.ts
+│   │           ├── streaming-interrupt-control.ts
+│   │           ├── task-planning-queue.ts
+│   │           ├── file-diff-patch-flow.ts
+│   │           ├── test-failure-repair.ts
+│   │           ├── prompt-assembly-pipeline.ts
+│   │           ├── agent-collaboration-merge.ts
+│   │           ├── browser-automation-check.ts
+│   │           ├── safety-boundary-filter.ts
+│   │           └── artifact-delivery-review.ts
 │   └── dist/                       # 构建输出（.gitignore 忽略）
 ├── docs/                           # srcDir 内容根目录
 │   ├── index.md                    # 首页（layout: home）
@@ -413,7 +421,7 @@ docs/book/
 | 实践篇首页 | `docs/practice/index.md` | 含 PracticeTerminalHero、PracticePhaseGrid、PracticeTagCloud、PracticeRouteExplorer |
 | 中级篇导读 | `docs/intermediate/index.md` | 含 EntryContextBanner，三条阅读路线入口 |
 | 实践环境准备 | `docs/practice/setup.md` | 环境配置与依赖安装 |
-| 动画实验室 | `docs/animation-lab/index.md` | 含 AnimationLabIndex 组件，11 个交互实验 |
+| 动画实验室 | `docs/animation-lab/index.md` | 含 AnimationLabIndex 组件，19 个交互实验 |
 | 阅读地图 | `docs/reading-map.md` | 多阶段课程分级与路线 |
 | 术语表 | `docs/glossary.md` | 高频概念统一口径 |
 | 版本说明 | `docs/version-notes.md` | 源码快照语义、写作边界 |
@@ -569,7 +577,7 @@ docs/book/
 ### 动画实验室组件（animation-lab/）
 | 组件名 | 文件 | 用途 |
 |--------|------|------|
-| `AnimationLabIndex` | `components/animation-lab/AnimationLabIndex.vue` | 实验室总览页面，渲染 11 个实验入口 |
+| `AnimationLabIndex` | `components/animation-lab/AnimationLabIndex.vue` | 实验室总览页面，渲染 19 个实验入口 |
 | `SystemMotionPlayer` | `components/animation-lab/SystemMotionPlayer.vue` | 系统运动演示播放器 |
 | `TracePanel` | `components/animation-lab/TracePanel.vue` | Trace 事件追踪面板 |
 | `FlowExperimentCanvas` | `components/animation-lab/FlowExperimentCanvas.vue` | 通用流动实验画布（节点 + 路径 + 动画） |
@@ -584,8 +592,16 @@ docs/book/
 | `HumanApprovalGateExperiment` | `components/animation-lab/HumanApprovalGateExperiment.vue` | 人工确认与高风险操作实验 |
 | `StructuredOutputValidationExperiment` | `components/animation-lab/StructuredOutputValidationExperiment.vue` | 结构化输出与校验修复实验 |
 | `StreamingInterruptControlExperiment` | `components/animation-lab/StreamingInterruptControlExperiment.vue` | 流式输出与中断控制实验 |
+| `TaskPlanningQueueExperiment` | `components/animation-lab/TaskPlanningQueueExperiment.vue` | 任务拆解与执行队列实验 |
+| `FileDiffPatchFlowExperiment` | `components/animation-lab/FileDiffPatchFlowExperiment.vue` | 文件 Diff 与 Patch 应用实验 |
+| `TestFailureRepairExperiment` | `components/animation-lab/TestFailureRepairExperiment.vue` | 测试失败定位与修复实验 |
+| `PromptAssemblyPipelineExperiment` | `components/animation-lab/PromptAssemblyPipelineExperiment.vue` | Prompt 组装流水线实验 |
+| `AgentCollaborationMergeExperiment` | `components/animation-lab/AgentCollaborationMergeExperiment.vue` | 子 Agent 协作与结果合并实验 |
+| `BrowserAutomationCheckExperiment` | `components/animation-lab/BrowserAutomationCheckExperiment.vue` | 浏览器自动化与截图校验实验 |
+| `SafetyBoundaryFilterExperiment` | `components/animation-lab/SafetyBoundaryFilterExperiment.vue` | 安全边界与敏感信息过滤实验 |
+| `ArtifactDeliveryReviewExperiment` | `components/animation-lab/ArtifactDeliveryReviewExperiment.vue` | 交付产物生成与复盘实验 |
 
-动画实验室支持 11 种实验类型：`agent-loop`、`context-memory-flow`、`multi-agent-dispatch`、`tool-permission-gate`、`context-compaction`、`error-recovery-loop`、`provider-routing-fallback`、`rag-retrieval-flow`、`human-approval-gate`、`structured-output-validation`、`streaming-interrupt-control`。
+动画实验室支持 19 种实验类型：`agent-loop`、`context-memory-flow`、`multi-agent-dispatch`、`tool-permission-gate`、`context-compaction`、`error-recovery-loop`、`provider-routing-fallback`、`rag-retrieval-flow`、`human-approval-gate`、`structured-output-validation`、`streaming-interrupt-control`、`task-planning-queue`、`file-diff-patch-flow`、`test-failure-repair`、`prompt-assembly-pipeline`、`agent-collaboration-merge`、`browser-automation-check`、`safety-boundary-filter`、`artifact-delivery-review`。
 
 ---
 
@@ -601,8 +617,8 @@ docs/book/
 | `practice-projects.ts` | 28 个实践项目完整元数据定义 | `practiceProjectsById`、`PracticeProjectDefinition` |
 | `practice-source-files.ts` | 实践项目源文件路径映射 | 每个 projectId 对应的可运行脚本路径 |
 | `discovery-content.ts` | 发现中心内容路由（按目标分组） | `DiscoveryGoalRoute`、`DiscoveryTopicCollection` |
-| `animation-lab-experiments.ts` | 动画实验室实验目录定义（11 个实验） | `animationLabExperiments`（`ExperimentCatalogItem[]`）、各实验 canvas/data 的 re-export |
-| `animation-lab/*.ts` | 各实验的数据定义（11 个文件） | 每个文件导出 canvas（nodes/paths）和 experiment（steps/traceEvents） |
+| `animation-lab-experiments.ts` | 动画实验室实验目录定义（19 个实验） | `animationLabExperiments`（`ExperimentCatalogItem[]`）、各实验 canvas/data 的 re-export |
+| `animation-lab/*.ts` | 各实验的数据定义（19 个文件） | 每个文件导出 canvas（nodes/paths）和 experiment（steps/traceEvents） |
 
 ### Frontmatter 元数据规范
 
@@ -665,7 +681,7 @@ roleDescription: 适合哪类读者
   - 理论篇（`/`）：六个部分（第一至第六部分，含中级篇索引），顶部含发现中心、动画实验室、实践篇、中级篇、面试题专区入口
   - 实践篇（`/practice/`）：七个阶段 + 5 个补充章节（P24-P28）
   - 中级篇（`/intermediate/`）：8 个专题 + 推荐入口
-  - 动画实验室（`/animation-lab/`）：实验室首页 + 11 个实验锚点链接
+  - 动画实验室（`/animation-lab/`）：实验室首页 + 19 个实验锚点链接
   - 面试题专区（`/interview/`）：7 个能力分类 + 9 个八股文子类
   - Claude Code（`/claude-code/`）：5 部分 20 章侧边栏
   - Hermes Agent（`/hermes-agent/`）：4 区块 12 章 + 5 组附录侧边栏

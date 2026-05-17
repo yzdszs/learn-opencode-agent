@@ -45,7 +45,12 @@ export const errorRecoveryLoopExperiment: Experiment = {
       description: '工具返回错误，失败结果被当作观察进入 Trace，而不是被静默吞掉或直接重试。',
       activeNodes: ['tool', 'error'],
       activePaths: ['tool-error'],
-      packet: { from: 'tool', to: 'error', label: 'err' },
+      packet: { from: 'tool', to: 'error', label: 'err', kind: 'error' },
+      nodeStates: { tool: 'fail', error: 'fail' },
+      nodeBadges: { error: 'HTTP 429' },
+      annotations: [
+        { at: 'tool', text: 'rate limit', tone: 'fail' },
+      ],
       traceEvents: [
         { id: 'error-captured', type: 'observation', title: '捕获错误', detail: '工具返回 stderr、退出码和错误类型，失败位置注入 Trace，等待分类处理。', status: 'active' },
       ],
@@ -56,7 +61,12 @@ export const errorRecoveryLoopExperiment: Experiment = {
       description: '分析器区分参数错误、权限问题、网络失败和不可恢复失败，决定是否进入修复循环。',
       activeNodes: ['error', 'analyzer'],
       activePaths: ['error-analyzer'],
-      packet: { from: 'error', to: 'analyzer', label: 'signal' },
+      packet: { from: 'error', to: 'analyzer', label: 'signal', kind: 'control' },
+      nodeStates: { error: 'fail', analyzer: 'busy' },
+      nodeBadges: { analyzer: 'retriable' },
+      annotations: [
+        { at: 'analyzer', text: 'retriable: yes', tone: 'warn' },
+      ],
       traceEvents: [
         { id: 'error-classified', type: 'thinking', title: '分类失败原因', detail: '分析错误类别和可恢复性，推断允许重试的条件，决策是否进入修复循环。', status: 'active' },
       ],
@@ -67,7 +77,9 @@ export const errorRecoveryLoopExperiment: Experiment = {
       description: '系统根据错误信号修正参数、缩小执行范围或改换路径，避免盲目重复同一次失败。',
       activeNodes: ['analyzer', 'repair'],
       activePaths: ['analyzer-repair'],
-      packet: { from: 'analyzer', to: 'repair', label: 'fix' },
+      packet: { from: 'analyzer', to: 'repair', label: 'fix', kind: 'control' },
+      nodeStates: { analyzer: 'done', repair: 'busy' },
+      nodeBadges: { repair: 'backoff 2s' },
       traceEvents: [
         { id: 'params-repaired', type: 'repair', title: '修正调用', detail: '根据错误信号修改参数，明确修复依据和重试边界，避免重复同一次失败。', status: 'active' },
       ],
@@ -78,7 +90,15 @@ export const errorRecoveryLoopExperiment: Experiment = {
       description: '修正后的请求再次进入工具，成功观察成为最终响应依据，并保留失败到恢复的完整链路。',
       activeNodes: ['repair', 'tool', 'final'],
       activePaths: ['repair-tool', 'tool-final'],
-      packet: { from: 'tool', to: 'final', label: 'ok' },
+      packets: [
+        { from: 'repair', to: 'tool', label: 'retry', kind: 'control', delay: 0 },
+        { from: 'tool', to: 'final', label: 'ok', kind: 'success', delay: 520 },
+      ],
+      nodeStates: { tool: 'done', final: 'done' },
+      nodeBadges: { tool: 'attempt 2', final: '200 OK' },
+      annotations: [
+        { at: 'final', text: '✓ recovered', tone: 'success' },
+      ],
       traceEvents: [
         { id: 'retry-succeeded', type: 'output', title: '重试成功', detail: '重试成功，输出可交付结果，保留失败到修复的完整路径供复盘。', status: 'active' },
       ],
