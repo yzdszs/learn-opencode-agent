@@ -1,0 +1,62 @@
+.motion-stream .flow-paths path.active {
+  stroke-dasharray: 1 12;
+  animation: stream-path 0.62s linear infinite;
+}
+
+.motion-validate .flow-paths path.active {
+  stroke-dasharray: 20 8 4 8;
+  animation: validate-path 1.1s steps(4, end) infinite;
+}
+
+.motion-merge .flow-paths path.active {
+  stroke-dasharray: 10 12;
+  animation: merge-path 1.15s ease-in-out infinite;
+}
+
+.motion-diff .flow-paths path.active {
+  stroke-dasharray: 4 10 18 10;
+  animation: diff-path 0.9s steps(5, end) infinite;
+}
+
+.motion-stream .flow-node.active {
+  animation: stream-node 0.9s ease-in-out infinite;
+}
+
+.motion-validate .flow-node.active {
+  animation: validate-node 1.25s steps(2, end) infinite;
+}
+
+.motion-merge .flow-node.active {
+  animation: merge-node 1.4s ease-in-out infinite;
+}
+
+.motion-diff .flow-node.active {
+  animation: diff-node 1s steps(2, end) infinite;
+}
+
+.motion-stream .flow-packet {
+  min-width: 36px;
+  min-height: 24px;
+  border-radius: 999px;
+  animation-name: stream-packet;
+  animation-timing-function: linear;
+}
+
+.motion-validate .flow-packet {
+  border-radius: 999px 8px 999px 8px;
+  animation-name: validate-packet;
+  animation-timing-function: steps(4, end);
+}
+
+.motion-merge .flow-packet {
+  min-width: 44px;
+  border-radius: 999px 999px 8px 8px;
+  animation-name: merge-packet;
+}
+
+.motion-diff .flow-packet {
+  min-width: 48px;
+  border-radius: 4px;
+  animation-name: diff-packet;
+  animation-timing-function: steps(5, end);
+}

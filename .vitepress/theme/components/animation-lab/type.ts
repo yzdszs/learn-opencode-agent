@@ -121,4 +121,14 @@ export interface FlowCanvasConfig {
   motion: FlowCanvasMotion
 }
 
-export type FlowCanvasMotion = 'memory' | 'dispatch' | 'gate' | 'compact' | 'recover' | 'route'
+export type FlowCanvasMotion =
+  | 'memory'
+  | 'dispatch'
+  | 'gate'
+  | 'compact'
+  | 'recover'
+  | 'route'
+  | 'stream'
+  | 'validate'
+  | 'merge'
+  | 'diff'

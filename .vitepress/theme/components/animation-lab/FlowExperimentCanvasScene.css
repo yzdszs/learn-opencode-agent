@@ -179,3 +179,131 @@
   left: 88%;
   animation-delay: 0.56s;
 }
+
+.motion-stream .scene-effect {
+  background:
+    linear-gradient(90deg, transparent 0 18%, rgba(125, 211, 252, 0.08) 19% 86%, transparent 87%),
+    radial-gradient(circle at 78% 28%, rgba(56, 189, 248, 0.14), transparent 18%);
+}
+
+.motion-stream .scene-effect span {
+  left: 18%;
+  right: 16%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.9), transparent);
+  animation: stream-lane 0.95s linear infinite;
+}
+
+.motion-stream .scene-effect span:nth-child(1) {
+  top: 30%;
+}
+
+.motion-stream .scene-effect span:nth-child(2) {
+  top: 52%;
+  animation-delay: 0.14s;
+}
+
+.motion-stream .scene-effect span:nth-child(3) {
+  top: 74%;
+  animation-delay: 0.28s;
+}
+
+.motion-validate .scene-effect {
+  background:
+    linear-gradient(90deg, transparent 0 50%, rgba(45, 212, 191, 0.1) 51% 58%, transparent 59%),
+    radial-gradient(circle at 62% 34%, rgba(52, 211, 153, 0.16), transparent 15%),
+    radial-gradient(circle at 34% 68%, rgba(248, 113, 113, 0.12), transparent 16%);
+}
+
+.motion-validate .scene-effect span {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(52, 211, 153, 0.72);
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.28);
+  animation: validate-stamp 1.2s steps(2, end) infinite;
+}
+
+.motion-validate .scene-effect span:nth-child(1) {
+  left: 28%;
+  top: 24%;
+}
+
+.motion-validate .scene-effect span:nth-child(2) {
+  left: 58%;
+  top: 44%;
+  border-color: rgba(251, 191, 36, 0.78);
+  animation-delay: 0.2s;
+}
+
+.motion-validate .scene-effect span:nth-child(3) {
+  left: 76%;
+  top: 70%;
+  animation-delay: 0.4s;
+}
+
+.motion-merge .scene-effect {
+  background:
+    radial-gradient(circle at 50% 52%, rgba(244, 114, 182, 0.16), transparent 18%),
+    linear-gradient(45deg, transparent 0 42%, rgba(251, 113, 133, 0.1) 43% 48%, transparent 49%),
+    linear-gradient(135deg, transparent 0 44%, rgba(129, 140, 248, 0.1) 45% 50%, transparent 51%);
+}
+
+.motion-merge .scene-effect span {
+  width: 42%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(253, 164, 175, 0.78), transparent);
+  transform-origin: right center;
+  animation: merge-ray 1.45s ease-in-out infinite;
+}
+
+.motion-merge .scene-effect span:nth-child(1) {
+  left: 10%;
+  top: 34%;
+  transform: rotate(12deg);
+}
+
+.motion-merge .scene-effect span:nth-child(2) {
+  left: 11%;
+  top: 66%;
+  transform: rotate(-12deg);
+  animation-delay: 0.2s;
+}
+
+.motion-merge .scene-effect span:nth-child(3) {
+  left: 46%;
+  top: 52%;
+  width: 32%;
+  animation-delay: 0.4s;
+}
+
+.motion-diff .scene-effect {
+  background:
+    linear-gradient(90deg, transparent 0 18%, rgba(129, 140, 248, 0.09) 19% 34%, transparent 35%),
+    linear-gradient(90deg, transparent 0 62%, rgba(52, 211, 153, 0.09) 63% 78%, transparent 79%);
+}
+
+.motion-diff .scene-effect span {
+  left: 16%;
+  right: 14%;
+  height: 10px;
+  border-left: 3px solid rgba(52, 211, 153, 0.74);
+  border-right: 3px solid rgba(248, 113, 113, 0.7);
+  background: linear-gradient(90deg, rgba(52, 211, 153, 0.18), transparent 48%, rgba(248, 113, 113, 0.15));
+  animation: diff-scan 1.05s steps(4, end) infinite;
+}
+
+.motion-diff .scene-effect span:nth-child(1) {
+  top: 28%;
+}
+
+.motion-diff .scene-effect span:nth-child(2) {
+  top: 50%;
+  animation-delay: 0.18s;
+}
+
+.motion-diff .scene-effect span:nth-child(3) {
+  top: 72%;
+  animation-delay: 0.36s;
+}

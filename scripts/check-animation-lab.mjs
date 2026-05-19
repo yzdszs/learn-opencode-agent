@@ -6,6 +6,7 @@ const dataPath = resolve(repoRoot, '.vitepress/theme/data/animation-lab-experime
 const dataDir = resolve(repoRoot, '.vitepress/theme/data/animation-lab')
 const componentDir = resolve(repoRoot, '.vitepress/theme/components/animation-lab')
 const indexPath = resolve(repoRoot, '.vitepress/theme/components/animation-lab/AnimationLabIndex.vue')
+const configPath = resolve(repoRoot, '.vitepress/config.mts')
 const maxAnimationLabFileLines = 500
 
 const animationDataFiles = [
@@ -30,9 +31,10 @@ const animationDataFiles = [
   ['artifact-delivery-review.ts', 'artifactDeliveryReviewExperiment'],
 ]
 
-const [dataContent, indexContent, componentFileNames, ...animationFileContents] = await Promise.all([
+const [dataContent, indexContent, configContent, componentFileNames, ...animationFileContents] = await Promise.all([
   readFile(dataPath, 'utf8'),
   readFile(indexPath, 'utf8'),
+  readFile(configPath, 'utf8'),
   readdir(componentDir),
   ...animationDataFiles.map(([fileName]) => readFile(resolve(dataDir, fileName), 'utf8').catch(() => '')),
 ])
@@ -58,6 +60,14 @@ const requiredExperimentIds = [
   'browser-automation-check',
   'safety-boundary-filter',
   'artifact-delivery-review',
+]
+
+const requiredSidebarGroups = [
+  'Agent 基础机制',
+  '上下文与知识',
+  '输出与交互控制',
+  '工程执行闭环',
+  '安全与交付',
 ]
 
 function getLayoutSignature(content) {
@@ -143,6 +153,18 @@ requiredExperimentIds.forEach((id, index) => {
   }
 })
 
+for (const group of requiredSidebarGroups) {
+  if (!configContent.includes(`text: '${group}'`)) {
+    issues.push(`动画实验室侧边栏缺少分组: ${group}`)
+  }
+}
+
+for (const id of requiredExperimentIds) {
+  if (!configContent.includes(`link: '/animation-lab/#${id}'`)) {
+    issues.push(`动画实验室侧边栏缺少入口: ${id}`)
+  }
+}
+
 if (dataContent.includes(`status: 'coming-soon'`)) {
   issues.push('动画实验室仍包含 coming-soon 状态')
 }
@@ -199,7 +221,7 @@ if (indexContent.includes('lab-sidebar') || indexContent.includes('lab-nav-item'
   issues.push('动画实验室页面不应包含内置实验切换 UI，统一由 VitePress 左侧菜单经 URL hash 切换')
 }
 
-for (const motion of ['memory', 'dispatch', 'gate', 'compact', 'recover', 'route']) {
+for (const motion of ['memory', 'dispatch', 'gate', 'compact', 'recover', 'route', 'stream', 'validate', 'merge', 'diff']) {
   if (!animationFileContents.some((content) => content.includes(`motion: '${motion}'`))) {
     issues.push(`缺少场景化动效配置: ${motion}`)
   }

@@ -706,26 +706,50 @@ export default withMermaid(defineConfig({
         { text: '← 返回首页', link: '/' },
         { text: '实验室首页', link: '/animation-lab/' },
         {
-          text: '实验列表',
+          text: 'Agent 基础机制',
           collapsed: false,
           items: [
             { text: 'Agent 运行闭环', link: '/animation-lab/#agent-loop' },
             { text: '工具调用与权限门', link: '/animation-lab/#tool-permission-gate' },
             { text: '错误恢复与自修复循环', link: '/animation-lab/#error-recovery-loop' },
+            { text: '多 Agent 调度', link: '/animation-lab/#multi-agent-dispatch' },
+          ]
+        },
+        {
+          text: '上下文与知识',
+          collapsed: false,
+          items: [
             { text: '上下文与记忆流', link: '/animation-lab/#context-memory-flow' },
             { text: '上下文压缩与摘要生成', link: '/animation-lab/#context-compaction' },
-            { text: 'Provider 路由与降级', link: '/animation-lab/#provider-routing-fallback' },
-            { text: '多 Agent 调度', link: '/animation-lab/#multi-agent-dispatch' },
             { text: 'RAG 检索增强流程', link: '/animation-lab/#rag-retrieval-flow' },
-            { text: '人工确认与高风险操作', link: '/animation-lab/#human-approval-gate' },
+            { text: 'Prompt 组装流水线', link: '/animation-lab/#prompt-assembly-pipeline' },
+          ]
+        },
+        {
+          text: '输出与交互控制',
+          collapsed: false,
+          items: [
             { text: '结构化输出与校验修复', link: '/animation-lab/#structured-output-validation' },
             { text: '流式输出与中断控制', link: '/animation-lab/#streaming-interrupt-control' },
+            { text: 'Provider 路由与降级', link: '/animation-lab/#provider-routing-fallback' },
+          ]
+        },
+        {
+          text: '工程执行闭环',
+          collapsed: false,
+          items: [
             { text: '任务拆解与执行队列', link: '/animation-lab/#task-planning-queue' },
             { text: '文件 Diff 与 Patch 应用', link: '/animation-lab/#file-diff-patch-flow' },
             { text: '测试失败定位与修复', link: '/animation-lab/#test-failure-repair' },
-            { text: 'Prompt 组装流水线', link: '/animation-lab/#prompt-assembly-pipeline' },
             { text: '子 Agent 协作与结果合并', link: '/animation-lab/#agent-collaboration-merge' },
             { text: '浏览器自动化与截图校验', link: '/animation-lab/#browser-automation-check' },
+          ]
+        },
+        {
+          text: '安全与交付',
+          collapsed: false,
+          items: [
+            { text: '人工确认与高风险操作', link: '/animation-lab/#human-approval-gate' },
             { text: '安全边界与敏感信息过滤', link: '/animation-lab/#safety-boundary-filter' },
             { text: '交付产物生成与复盘', link: '/animation-lab/#artifact-delivery-review' },
           ]

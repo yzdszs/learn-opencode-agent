@@ -1,0 +1,226 @@
+@keyframes stream-lane {
+  0% {
+    opacity: 0.16;
+    transform: translateX(-18%) scaleX(0.4);
+  }
+
+  50% {
+    opacity: 0.86;
+    transform: translateX(4%) scaleX(1);
+  }
+
+  100% {
+    opacity: 0.16;
+    transform: translateX(22%) scaleX(0.4);
+  }
+}
+
+@keyframes stream-path {
+  to {
+    stroke-dashoffset: -52;
+  }
+}
+
+@keyframes stream-node {
+  50% {
+    transform: translate(-50%, -50%) scale(1.03);
+  }
+}
+
+@keyframes stream-packet {
+  0% {
+    left: var(--packet-start-x);
+    top: var(--packet-start-y);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.62);
+  }
+
+  8% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  72% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  100% {
+    left: var(--packet-end-x);
+    top: var(--packet-end-y);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.62);
+  }
+}
+
+@keyframes validate-stamp {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: scale(0.72) rotate(-6deg);
+  }
+
+  50% {
+    opacity: 0.92;
+    transform: scale(1.08) rotate(0);
+  }
+}
+
+@keyframes validate-path {
+  0%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dashoffset: -26;
+  }
+}
+
+@keyframes validate-node {
+  50% {
+    border-color: rgba(52, 211, 153, 0.92);
+    box-shadow:
+      0 0 0 1px rgba(52, 211, 153, 0.2),
+      0 0 30px rgba(52, 211, 153, 0.3),
+      0 16px 34px rgba(2, 6, 23, 0.42);
+  }
+}
+
+@keyframes validate-packet {
+  0% {
+    left: var(--packet-start-x);
+    top: var(--packet-start-y);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7) rotate(-4deg);
+  }
+
+  25% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.04) rotate(3deg);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.96) rotate(-2deg);
+  }
+
+  100% {
+    left: var(--packet-end-x);
+    top: var(--packet-end-y);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7) rotate(0);
+  }
+}
+
+@keyframes merge-ray {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: scaleX(0.36);
+  }
+
+  50% {
+    opacity: 0.84;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes merge-path {
+  0%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dashoffset: -24;
+  }
+}
+
+@keyframes merge-node {
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow:
+      0 0 0 1px rgba(253, 164, 175, 0.22),
+      0 0 30px rgba(251, 113, 133, 0.28),
+      0 16px 34px rgba(2, 6, 23, 0.42);
+  }
+}
+
+@keyframes merge-packet {
+  0% {
+    left: var(--packet-start-x);
+    top: var(--packet-start-y);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.66) rotate(-8deg);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0);
+  }
+
+  76% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0);
+  }
+
+  100% {
+    left: var(--packet-end-x);
+    top: var(--packet-end-y);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.74) rotate(8deg);
+  }
+}
+
+@keyframes diff-scan {
+  0%,
+  100% {
+    opacity: 0.14;
+    transform: translateX(-8px) scaleX(0.72);
+  }
+
+  50% {
+    opacity: 0.86;
+    transform: translateX(12px) scaleX(1);
+  }
+}
+
+@keyframes diff-path {
+  to {
+    stroke-dashoffset: -34;
+  }
+}
+
+@keyframes diff-node {
+  50% {
+    border-color: rgba(129, 140, 248, 0.88);
+    transform: translate(-50%, -50%) skewX(-1.5deg);
+  }
+}
+
+@keyframes diff-packet {
+  0% {
+    left: var(--packet-start-x);
+    top: var(--packet-start-y);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7) skewX(-7deg);
+  }
+
+  22% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) skewX(0);
+  }
+
+  78% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) skewX(0);
+  }
+
+  100% {
+    left: var(--packet-end-x);
+    top: var(--packet-end-y);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7) skewX(7deg);
+  }
+}
