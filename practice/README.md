@@ -1,13 +1,13 @@
 # 实践篇代码示例
 
-本目录包含 23 个可运行的 AI Agent 实践示例，涵盖从基础到生产的完整技术栈。
+本目录包含 P1-P28 的 AI Agent 实践示例脚本：23 个主线项目加 5 个补充实践，涵盖从基础到生产的完整技术栈。
 
 它和站内OpenCode 拆解的关系可以这样理解：
 
 - OpenCode 拆解回答“OpenCode 这类 Agent 系统是怎么实现的”
 - 实践篇回答“如果你自己从零搭，一个可运行版本应该怎么逐步做出来”
 
-建议先阅读站内 [实践环境准备](/practice/setup)，再按 `P1 -> P23` 的顺序逐步推进。
+建议先阅读站内 [实践环境准备](/practice/setup)，再按 `P1 -> P23` 的主线顺序逐步推进；P24-P28 可以按主题穿插补充。
 
 ## 环境配置
 
@@ -96,6 +96,9 @@ OPENAI_MODEL=llama3
 - P2: 多轮对话 (`p02-multi-turn.ts`)
 - P3: 流式输出 (`p03-streaming.ts`)
 - P4: 错误处理 (`p04-error-handling.ts`)
+- P24: Prompt Engineering 基础 (`p24-prompt-engineering.ts`)
+- P25: 长上下文管理 (`p25-long-context.ts`)
+- P26: 结构化输出 (`p26-structured-output.ts`)
 
 ### Phase 2 — 记忆与知识系统
 - P5: 记忆系统架构 (`p05-memory-arch.ts`)
@@ -112,11 +115,13 @@ OPENAI_MODEL=llama3
 ### Phase 4 — 感知扩展
 - P13: 多模态 (`p13-multimodal.ts`)
 - P14: MCP 协议 (`p14-mcp.ts`)
+- P27: 代码执行 Agent (`p27-code-execution.ts`)
 
 ### Phase 5 — 多 Agent 协作
 - P15: 多 Agent 编排 (`p15-multi-agent.ts`)
 - P16: 子 Agent (`p16-subagent.ts`)
 - P17: Agent 通信 (`p17-agent-comm.ts`)
+- P28: Human-in-the-Loop (`p28-human-in-loop.ts`)
 
 ### Phase 6 — 生产化
 - P18: 模型路由 (`p18-model-routing.ts`)

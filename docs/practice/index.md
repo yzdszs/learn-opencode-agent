@@ -1,7 +1,7 @@
 ---
 layout: home
 title: AI Agent 实战手册
-description: 23 个项目，按章节拆解 TypeScript Agent 实现，从工具调用到生产部署全覆盖
+description: 23 个主线项目加 5 个补充实践，按章节拆解 TypeScript Agent 实现，从工具调用到生产部署全覆盖
 pageClass: practice-page
 ---
 
@@ -28,7 +28,7 @@ const bannerSupportLinks = [
 
 # AI Agent 实战手册
 
-**23 个项目 · 可跟练实现 · OpenAI SDK + TypeScript**
+**23 个主线项目 + 5 个补充实践 · 可跟练实现 · OpenAI SDK + TypeScript**
 
 <div class="practice-actions">
   <a href="/practice/p01-minimal-agent/" class="btn-primary">开始学习</a>

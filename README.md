@@ -31,7 +31,7 @@
 | 专区 | 位置 | 说明 |
 |------|------|------|
 | OpenCode 拆解 | `docs/00-what-is-ai-agent/` 至 `docs/20-best-practices/`，以及 `docs/oh-*` | 24 章主线，覆盖 Agent 基础、工具系统、多模型、TUI、插件与最佳实践 |
-| 实践篇 | `docs/practice/` + `practice/` | 28 个实践章节，配套 29 个 TypeScript 示例脚本 |
+| 实践篇 | `docs/practice/` + `practice/` | 28 个实践章节，配套 P1-P28 示例脚本；其中 P14 额外包含一个 MCP Server 脚本 |
 | 中级篇 | `docs/intermediate/` | 第 25-32 章，覆盖 RAG、协作、规划、上下文、生产架构、安全与成本 |
 | 动画实验室 | `docs/animation-lab/` + `.vitepress/theme/data/animation-lab*` | 数据驱动的 Agent 机制可视化实验 |
 | 面试题专区 | `docs/interview/` | 按基础、工具、RAG、记忆、多 Agent、规划、工程化等主题组织 |
