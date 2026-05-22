@@ -1,0 +1,438 @@
+.tcl-root {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.tcl-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tcl-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.tcl-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--vp-c-text-3);
+  transition: background 0.3s, box-shadow 0.3s;
+  flex-shrink: 0;
+}
+
+.tcl-indicator.running {
+  background: var(--vp-c-brand-1);
+  box-shadow: 0 0 8px var(--vp-c-brand-1);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.tcl-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+
+.tcl-badge {
+  font-size: 0.6875rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(13, 148, 136, 0.1);
+  color: var(--vp-c-brand-1);
+  font-weight: 500;
+}
+
+.tcl-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tcl-mode-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tcl-mode-btn {
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.35rem 0.7rem;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.tcl-mode-btn:hover {
+  color: var(--vp-c-text-1);
+  border-color: var(--vp-c-brand-2);
+}
+
+.tcl-mode-btn.active {
+  background: rgba(13, 148, 136, 0.1);
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+
+.tcl-mode-summary {
+  color: var(--vp-c-text-2);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: -0.25rem 0 0;
+}
+
+.tcl-btn-primary {
+  background: var(--vp-c-brand-1);
+  color: #fff;
+  border: none;
+  padding: 0.375rem 0.875rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.tcl-btn-primary:hover {
+  opacity: 0.9;
+}
+
+.tcl-btn-primary.active {
+  background: #0f766e;
+}
+
+.tcl-btn-ghost {
+  background: transparent;
+  border: 1px solid var(--vp-c-divider);
+  padding: 0.375rem 0.875rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  color: var(--vp-c-text-1);
+}
+
+.tcl-btn-ghost:hover {
+  background: var(--vp-c-bg-soft);
+}
+
+.tcl-progress-bar {
+  height: 4px;
+  background: var(--vp-c-divider);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.tcl-progress-fill {
+  height: 100%;
+  background: var(--vp-c-brand-1);
+  transition: width 0.3s ease;
+}
+
+.tcl-body {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 1.25rem;
+  min-height: 400px;
+}
+
+.tcl-main {
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.tcl-step-indicator {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 0 1rem;
+}
+
+.tcl-step-indicator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  right: 1rem;
+  height: 2px;
+  background: var(--vp-c-divider);
+  z-index: 0;
+}
+
+.tcl-step-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--vp-c-bg-soft);
+  border: 2px solid var(--vp-c-divider);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--vp-c-text-3);
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s;
+}
+
+.tcl-step-dot.active {
+  background: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+  color: #fff;
+  transform: scale(1.15);
+}
+
+.tcl-step-dot.active.validate,
+.tcl-step-dot.active.error,
+.tcl-step-dot.active.repair {
+  border-color: currentColor;
+}
+
+.tcl-step-dot.active.validate {
+  background: #f59e0b;
+}
+
+.tcl-step-dot.active.error {
+  background: #ef4444;
+}
+
+.tcl-step-dot.active.repair {
+  background: #0ea5e9;
+}
+
+.tcl-step-dot.done {
+  background: #10b981;
+  border-color: #10b981;
+  color: #fff;
+}
+
+.tcl-step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tcl-step-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tcl-step-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  margin: 0;
+}
+
+.tcl-step-title.validate { color: #b45309; }
+.tcl-step-title.error { color: #dc2626; }
+.tcl-step-title.repair { color: #0284c7; }
+
+.tcl-step-desc {
+  font-size: 0.9375rem;
+  color: var(--vp-c-text-2);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.tcl-code-block,
+.tcl-output-block {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.tcl-code-label,
+.tcl-output-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--vp-c-text-3);
+  padding: 0.5rem 0.75rem;
+  background: var(--vp-c-bg);
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.tcl-code-block pre,
+.tcl-output-block pre {
+  margin: 0;
+  padding: 0.75rem;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--vp-c-text-1);
+  overflow-x: auto;
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.tcl-output-block {
+  border-left: 3px solid var(--vp-c-brand-1);
+}
+
+.tcl-output-block.validate,
+.tcl-output-block.repair {
+  border-left-color: #0ea5e9;
+}
+
+.tcl-output-block.error {
+  border-left-color: #ef4444;
+}
+
+.tcl-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tcl-block {
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tcl-block-header {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--vp-c-text-2);
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--vp-c-divider);
+  margin-bottom: 0.25rem;
+}
+
+.tcl-log-view {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.6875rem;
+  max-height: 180px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.tcl-log-line {
+  line-height: 1.5;
+  color: var(--vp-c-text-2);
+}
+
+.tcl-log-line.declare { color: #3b82f6; }
+.tcl-log-line.decide { color: #8b5cf6; }
+.tcl-log-line.validate { color: #f59e0b; }
+.tcl-log-line.execute { color: #f59e0b; }
+.tcl-log-line.integrate { color: #10b981; }
+.tcl-log-line.error { color: #ef4444; }
+.tcl-log-line.repair { color: #0ea5e9; }
+
+.tcl-log-ts {
+  color: var(--vp-c-text-3);
+  margin-right: 0.4rem;
+}
+
+.tcl-empty {
+  font-size: 0.75rem;
+  color: var(--vp-c-text-3);
+  text-align: center;
+  padding: 0.4rem;
+}
+
+.tcl-phases {
+  flex: 1;
+}
+
+.tcl-phase-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tcl-phase-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background: var(--vp-c-bg-soft);
+  transition: all 0.2s;
+}
+
+.tcl-phase-item.active {
+  background: rgba(13, 148, 136, 0.1);
+  border-left: 3px solid var(--vp-c-brand-1);
+}
+
+.tcl-phase-icon {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tcl-phase-icon.declare { background: #3b82f6; }
+.tcl-phase-icon.decide { background: #8b5cf6; }
+.tcl-phase-icon.validate { background: #f59e0b; }
+.tcl-phase-icon.execute { background: #f59e0b; }
+.tcl-phase-icon.integrate { background: #10b981; }
+.tcl-phase-icon.error { background: #ef4444; }
+.tcl-phase-icon.repair { background: #0ea5e9; }
+
+.tcl-phase-text {
+  font-size: 0.8125rem;
+  color: var(--vp-c-text-1);
+}
+
+@media (max-width: 768px) {
+  .tcl-body {
+    grid-template-columns: 1fr;
+  }
+
+  .tcl-step-indicator {
+    padding: 0 0.5rem;
+  }
+
+  .tcl-step-indicator::before {
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .tcl-step-dot {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+  }
+}
