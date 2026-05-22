@@ -7,6 +7,7 @@ const dataDir = resolve(repoRoot, '.vitepress/theme/data/animation-lab')
 const componentDir = resolve(repoRoot, '.vitepress/theme/components/animation-lab')
 const indexPath = resolve(repoRoot, '.vitepress/theme/components/animation-lab/AnimationLabIndex.vue')
 const configPath = resolve(repoRoot, '.vitepress/config.mts')
+const practiceDir = resolve(repoRoot, 'docs/practice')
 const maxAnimationLabFileLines = 500
 
 const animationDataFiles = [
@@ -169,6 +170,21 @@ if (dataContent.includes(`status: 'coming-soon'`)) {
   issues.push('动画实验室仍包含 coming-soon 状态')
 }
 
+const practiceLinks = [...dataContent.matchAll(/href: '(\/practice\/[^']+)'/g)].map(([, href]) => href)
+if (practiceLinks.length < requiredExperimentIds.length) {
+  issues.push(`动画实验室需要为每个实验归集至少一个实践入口，当前入口数为 ${practiceLinks.length}`)
+}
+
+for (const href of practiceLinks) {
+  const practicePath = resolve(practiceDir, href.replace(/^\/practice\/?/, ''), 'index.md')
+
+  try {
+    await readFile(practicePath, 'utf8')
+  } catch {
+    issues.push(`动画实验室实践入口不存在: ${href}`)
+  }
+}
+
 const availableCount = dataContent.match(/^\s*entry\(/gm)?.length ?? 0
 if (availableCount !== requiredExperimentIds.length) {
   issues.push(`可用实验数量应为 ${requiredExperimentIds.length}，当前为 ${availableCount}`)
@@ -215,6 +231,10 @@ for (const exportName of [
 
 if (!indexContent.includes('FlowExperimentCanvas')) {
   issues.push('AnimationLabIndex 必须直接渲染 FlowExperimentCanvas 共享画布')
+}
+
+if (!indexContent.includes('practiceLinks')) {
+  issues.push('AnimationLabIndex 需要展示实验关联的实践篇入口')
 }
 
 if (indexContent.includes('lab-sidebar') || indexContent.includes('lab-nav-item') || indexContent.includes('lab-switcher') || indexContent.includes('lab-chip')) {

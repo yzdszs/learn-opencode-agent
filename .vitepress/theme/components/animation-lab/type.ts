@@ -87,8 +87,14 @@ export interface ExperimentCatalogItem {
   title: string
   summary: string
   status: ExperimentStatus
+  practiceLinks: PracticeLink[]
   experiment?: Experiment
   canvas?: FlowCanvasConfig
+}
+
+export interface PracticeLink {
+  title: string
+  href: string
 }
 
 export interface CanvasNode {

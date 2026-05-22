@@ -40,15 +40,34 @@ onUnmounted(() => {
 
     <section class="lab-workspace" aria-label="动画实验库">
       <div class="lab-stage">
-        <SystemMotionPlayer
-          v-if="selected?.experiment && selected.canvas"
-          :key="selected.id"
-          :experiment="selected.experiment"
-        >
-          <template #default="{ step }">
-            <FlowExperimentCanvas :step="step" :config="selected.canvas" />
-          </template>
-        </SystemMotionPlayer>
+        <template v-if="selected?.experiment && selected.canvas">
+          <SystemMotionPlayer
+            :key="selected.id"
+            :experiment="selected.experiment"
+          >
+            <template #default="{ step }">
+              <FlowExperimentCanvas :step="step" :config="selected.canvas" />
+            </template>
+          </SystemMotionPlayer>
+
+          <section v-if="selected.practiceLinks.length" class="lab-practice-links" aria-label="关联实践">
+            <div>
+              <p class="lab-eyebrow">Practice Links</p>
+              <h2>对应实践动画</h2>
+              <p>这里归集了实践篇里和当前机制最接近的章节演示。实验室看机制，实践篇看完整代码。</p>
+            </div>
+            <div class="practice-link-list">
+              <a
+                v-for="link in selected.practiceLinks"
+                :key="link.href"
+                :href="link.href"
+                class="practice-link"
+              >
+                {{ link.title }}
+              </a>
+            </div>
+          </section>
+        </template>
 
         <div v-else class="lab-placeholder">
           <p class="lab-eyebrow">No Experiment</p>
@@ -109,6 +128,8 @@ onUnmounted(() => {
 }
 
 .lab-stage {
+  display: grid;
+  gap: 14px;
   min-width: 0;
 }
 
@@ -142,10 +163,79 @@ onUnmounted(() => {
   line-height: 1.7;
 }
 
+.lab-practice-links {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, auto);
+  gap: 18px;
+  align-items: center;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 8px;
+  background: #0f172a;
+  color: #e5edf7;
+}
+
+.lab-practice-links h2 {
+  margin: 0;
+  border: none;
+  color: #f8fafc;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.lab-practice-links p:not(.lab-eyebrow) {
+  margin: 6px 0 0;
+  color: #b6c3d1;
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+.practice-link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.practice-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 1px solid rgba(125, 211, 252, 0.28);
+  border-radius: 8px;
+  background: rgba(14, 165, 233, 0.1);
+  color: #dff7ff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  transition:
+    border-color 0.18s ease,
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.practice-link:hover {
+  border-color: rgba(125, 211, 252, 0.66);
+  background: rgba(14, 165, 233, 0.2);
+  color: #ffffff;
+}
+
 @media (max-width: 820px) {
   .animation-lab-index {
     gap: 18px;
     padding-top: 2px;
+  }
+
+  .lab-practice-links {
+    grid-template-columns: 1fr;
+  }
+
+  .practice-link-list {
+    justify-content: flex-start;
   }
 }
 </style>
