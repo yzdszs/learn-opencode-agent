@@ -114,8 +114,8 @@ const curatedContentById: Record<string, DiscoveryContentLink> = {
     title: '智能体选型',
     contentType: 'support',
     contentTypeLabel: getDiscoveryContentTypeLabel('support'),
-    summary: '从 Agent 框架、LangGraph、RAG、搜索工具和组合方案之间建立工程选型判断。',
-    roleDescription: '适合正在判断技术栈边界、避免过度 Agent 化或过度 RAG 化的开发者。',
+    summary: '从 Agent 框架、RAG、搜索、模型、数据库、工具和观测评估之间建立工程选型判断。',
+    roleDescription: '适合正在比较 Agent 框架、模型、数据库、检索组件、工具和观测评估方案的智能体开发工程师。',
     estimatedTime: '45 min',
     difficulty: 'intermediate',
     searchTags: ['智能体选型', 'Agent Framework', 'LangGraph', 'RAG', '搜索工具']

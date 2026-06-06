@@ -14,7 +14,7 @@ learningGoals:
   - 识别知识版本、引用和评测集的重要性
 prerequisites:
   - 已了解 RAG 选型
-  - 已了解选型检查表
+  - 已了解智能体选型总览
 recommendedNext:
   - /agent-selection/21-enterprise-knowledge-permission
   - /agent-selection/08-poc-evaluation

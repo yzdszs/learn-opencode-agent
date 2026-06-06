@@ -16,7 +16,7 @@ prerequisites:
   - 已了解搜索工具选型
   - 已了解 RAG 与 Search 的边界
 recommendedNext:
-  - /agent-selection/24-browser-crawl-search
+  - /agent-selection/36-search-reader-crawler-browser-tools
   - /agent-selection/27-observability-trace-replay-eval
   - /practice/p14-mcp/
 practiceLinks:

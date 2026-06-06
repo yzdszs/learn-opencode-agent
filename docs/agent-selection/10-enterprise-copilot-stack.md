@@ -13,7 +13,7 @@ learningGoals:
   - 区分知识问答、工具执行和流程编排边界
   - 识别企业场景中的权限、审计和上线风险
 prerequisites:
-  - 已了解 Agent 框架、RAG 和组合方案
+  - 已了解 Agent 框架、RAG 和搜索工具边界
   - 已阅读场景选型手册
 recommendedNext:
   - /agent-selection/21-enterprise-knowledge-permission

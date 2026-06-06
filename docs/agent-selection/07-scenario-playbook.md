@@ -14,7 +14,7 @@ learningGoals:
   - 避免把所有 Agent 项目都套成同一种架构
 prerequisites:
   - 已了解 Agent 框架、RAG 和搜索工具边界
-  - 已了解组合方案和选型检查表
+  - 已了解 Agent 框架、RAG 和搜索工具边界
 recommendedNext:
   - /agent-selection/08-poc-evaluation
   - /agent-selection/09-build-vs-buy

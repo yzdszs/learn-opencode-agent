@@ -18,8 +18,8 @@ prerequisites:
   - 了解文档知识库场景
 recommendedNext:
   - /agent-selection/04-search-tools
-  - /agent-selection/05-composition-patterns
-  - /agent-selection/06-selection-checklist
+  - /agent-selection/20-retrieval-patterns
+  - /agent-selection/21-enterprise-knowledge-permission
 practiceLinks:
   - /practice/p07-rag-basics/
   - /practice/p08-graphrag/

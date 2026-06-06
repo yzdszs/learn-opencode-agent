@@ -1,17 +1,18 @@
 ---
 title: 智能体选型
-description: 在 Agent 框架、LangGraph、RAG、搜索工具和组合方案之间建立工程选型判断。
+description: 面向智能体开发工程师，系统比较 Agent 框架、RAG、搜索、模型、工具、平台和生产组件的技术选型。
 contentType: support
 series: support
 contentId: agent-selection-index
 shortTitle: 智能体选型
-summary: 帮助读者判断什么时候需要 Agent 框架，什么时候应该优先 RAG、搜索工具或轻量模型调用。
+summary: 帮助智能体开发工程师判断各类框架、模型、数据库、检索组件、搜索抓取工具和观测评估工具怎么选。
 difficulty: intermediate
 estimatedTime: 20 分钟
 learningGoals:
   - 区分 Agent 框架、RAG 与搜索工具解决的问题边界
   - 建立按任务类型和知识来源选择技术路径的判断顺序
   - 理解场景、评审、平台、RAG、技术组件、工具和生产工程之间的选型关系
+  - 掌握常见工具的优点、代价、适用场景和不适用场景
 prerequisites:
   - 了解 AI Agent 基础概念
   - 了解工具调用的基本含义
@@ -19,15 +20,10 @@ prerequisites:
 recommendedNext:
   - /agent-selection/01-agent-frameworks
   - /agent-selection/07-scenario-playbook
-  - /agent-selection/14-selection-review-template
+  - /agent-selection/08-poc-evaluation
+  - /agent-selection/19-vector-database-selection
+  - /agent-selection/20-retrieval-patterns
   - /agent-selection/31-embedding-models
-  - /agent-selection/32-vector-databases
-  - /agent-selection/33-hybrid-retrieval-rerank
-  - /agent-selection/34-agent-frameworks-landscape
-  - /agent-selection/35-reranker-models
-  - /agent-selection/36-search-reader-crawler-browser-tools
-  - /agent-selection/37-observability-evaluation-tools
-  - /agent-selection/27-observability-trace-replay-eval
 practiceLinks:
   - /practice/p07-rag-basics/
   - /practice/p09-hybrid-retrieval/
@@ -41,12 +37,21 @@ searchTags:
   - 搜索工具
 navigationLabel: 智能体选型
 entryMode: bridge
-roleDescription: 适合正在判断 Agent 框架、RAG、搜索工具和组合方案取舍的开发者。
+roleDescription: 适合正在比较 Agent 框架、RAG、搜索、模型、数据库、工具和观测评估方案的智能体开发工程师。
 ---
 
 <ChapterLearningGuide />
 
 ## 这个专区解决什么问题
+
+这个专区不是泛泛讲 Agent 概念，而是给智能体开发工程师做技术选型用的。每类技术都要回答四个问题：
+
+```text
+它解决什么问题？
+优点和代价是什么？
+什么场景适合用？
+什么场景不该用？
+```
 
 很多团队说“我要做一个 Agent”，其实这句话没有工程含义。真正的问题通常是下面三类之一：
 
@@ -71,9 +76,9 @@ Search Tools
 | 要回答内部文档、代码库、制度问题 | [RAG](/agent-selection/03-rag-knowledge-selection) | 不要用开放搜索替代权限知识库 |
 | 要回答最新网页、版本、新闻、官方文档 | [搜索工具](/agent-selection/04-search-tools) | 不要把实时网页离线塞进旧索引 |
 | 要连续执行多步任务 | [Agent Framework](/agent-selection/01-agent-frameworks) | 不要只靠 Prompt 硬撑流程 |
-| 已经确定需要状态图、恢复和人工确认 | [LangGraph](/agent-selection/02-langgraph) | 不要把简单流程画成复杂图 |
-| 要内部知识和外部实时信息交叉验证 | [RAG + Search](/agent-selection/05-composition-patterns) | 不要把两类来源混在一个检索器里 |
-| 要生产可审计、可恢复、可观测 | [组合方案](/agent-selection/05-composition-patterns) + Trace | 不要上线不可回放的黑盒链路 |
+| 已经确定需要状态图、恢复和人工确认 | [LangGraph 与 SDK](/agent-selection/02-langgraph) | 不要把简单流程画成复杂图 |
+| 要内部知识和外部实时信息交叉验证 | [RAG 知识与检索选型](/agent-selection/03-rag-knowledge-selection) + [搜索与抓取工具选型](/agent-selection/04-search-tools) | 不要把两类来源混在一个检索器里 |
+| 要生产可审计、可恢复、可观测 | [Agent 可观测性与评估怎么选](/agent-selection/27-observability-trace-replay-eval) | 不要上线不可回放的黑盒链路 |
 
 ## 三层模型
 
@@ -105,18 +110,16 @@ Agent Framework 决定任务怎么推进。
 
 如果答案已经很清楚，可以直接跳到对应文章；如果还不确定，先读基础判断，再按场景进入对应分组。
 
-这个专区分两层阅读：`01-30` 偏决策框架、场景和生产边界，`31-37` 偏组件图谱、工具清单和候选项初筛。不要用工具清单替代系统设计，也不要在系统边界没定清楚时先比较品牌。
+这个专区分两层：前半部分回答系统边界和业务场景，后半部分回答具体工具和组件怎么选。工具清单必须服务于工程判断，不能只堆品牌名。
 
 ## 基础判断
 
 | 文章 | 解决什么 |
 | --- | --- |
-| [Agent 框架怎么选](/agent-selection/01-agent-frameworks) | 判断是否真的需要 Agent Framework |
-| [LangGraph 适合什么场景](/agent-selection/02-langgraph) | 判断状态图、恢复执行和人机确认是否必要 |
+| [Agent 框架与 Runtime 怎么选](/agent-selection/01-agent-frameworks) | 判断是否需要 Agent Framework，对比自研 loop、LangChain、LangGraph、LlamaIndex、AutoGen、CrewAI、平台 SDK、MCP 和托管 Runtime |
+| [LangGraph 与平台 SDK 怎么选](/agent-selection/02-langgraph) | 判断状态图、平台 SDK、Tool Use 和轻量 loop 的取舍 |
 | [RAG 知识与检索选型](/agent-selection/03-rag-knowledge-selection) | 判断内部知识、向量库、混合检索和重排 |
-| [搜索工具选型](/agent-selection/04-search-tools) | 判断实时外部信息、搜索 API 和网页读取 |
-| [组合方案](/agent-selection/05-composition-patterns) | 组合 Agent、RAG、Search、Tools 和 Audit |
-| [选型检查表](/agent-selection/06-selection-checklist) | 方案评审前快速收口 |
+| [搜索与抓取工具怎么选](/agent-selection/04-search-tools) | 判断 Search API、Reader、Crawler、Browser 和 Scraper 的层级选型 |
 
 ## 场景化选型
 
@@ -132,52 +135,41 @@ Agent Framework 决定任务怎么推进。
 
 | 文章 | 解决什么 |
 | --- | --- |
-| [POC 与评估标准](/agent-selection/08-poc-evaluation) | 样本集、指标、通过标准和上线缺口 |
-| [自研、框架还是托管平台](/agent-selection/09-build-vs-buy) | Build vs Buy 和平台路线 |
-| [Agent 选型评审模板](/agent-selection/14-selection-review-template) | 结构化评审任务、权限、评估和风险 |
-| [供应商锁定怎么评估](/agent-selection/15-vendor-lock-in) | provider 锁定、迁移和退出成本 |
+| [POC 评估与评审](/agent-selection/08-poc-evaluation) | 样本集、指标、通过标准、上线缺口和评审模板 |
+| [自研、平台还是托管](/agent-selection/09-build-vs-buy) | Build vs Buy、供应商锁定评估、托管平台 vs 自建 Runtime |
 
 ## 模型与平台
 
 | 文章 | 解决什么 |
 | --- | --- |
 | [模型路由怎么选](/agent-selection/16-model-routing-selection) | 小模型、大模型、长上下文和 fallback |
-| [Agents SDK、Claude Tool Use、LangGraph 怎么取舍](/agent-selection/17-sdk-tools-langgraph) | 平台 SDK、工具调用和状态图边界 |
-| [托管 Agent 平台还是自建 Runtime](/agent-selection/18-managed-platform-vs-runtime) | 托管平台、自建控制层和迁移风险 |
 
-## 技术组件选型
+## 工具与组件选型
 
-这一组是候选清单入口，回答“有哪些具体组件可选”。它不替代前面的系统设计文章；如果你还没确定检索、工具、观测或运行时边界，先看基础判断、RAG 细分和生产工程。
+这一组是智能体开发工程师最常用的工具选型入口，回答“有哪些具体候选、优点是什么、什么场景适合用、什么场景不该用”。
 
 | 文章 | 解决什么 |
 | --- | --- |
 | [Embedding 模型怎么选](/agent-selection/31-embedding-models) | OpenAI、Cohere、Voyage、BGE、E5、GTE、Jina、Nomic 等模型的场景取舍 |
-| [向量数据库怎么选](/agent-selection/32-vector-databases) | Milvus、Qdrant、Pinecone、Weaviate、Chroma、pgvector、ES/OpenSearch 等方案的适用边界 |
-| [Hybrid Retrieval 和 Rerank 怎么选](/agent-selection/33-hybrid-retrieval-rerank) | Dense、BM25、Hybrid、Rerank、GraphRAG、Long Context 等检索组件的分工 |
-| [Agent 框架组件怎么选](/agent-selection/34-agent-frameworks-landscape) | 自研 loop、LangChain、LangGraph、LlamaIndex、AutoGen、CrewAI、Semantic Kernel、平台 SDK、MCP 和托管 Runtime 的边界 |
+| [向量数据库怎么选](/agent-selection/19-vector-database-selection) | Milvus、Qdrant、Pinecone、Weaviate、Chroma、pgvector、ES/OpenSearch 等方案的适用边界 |
+| [检索组件怎么选](/agent-selection/20-retrieval-patterns) | Dense、BM25、Hybrid、Rerank、Query Rewrite、GraphRAG、Long Context 等检索组件的分工 |
 | [Reranker 模型怎么选](/agent-selection/35-reranker-models) | Cohere、Voyage、Jina、BGE、ColBERT、LLM-as-reranker 和自训练 Reranker 的场景取舍 |
-| [搜索 API、Reader、Crawler、Browser 工具怎么选](/agent-selection/36-search-reader-crawler-browser-tools) | Tavily、Exa、SerpAPI、Jina Reader、Firecrawl、Crawl4AI、Scrapy、Playwright 等工具的分工 |
-| [Agent 可观测性和评估工具怎么选](/agent-selection/37-observability-evaluation-tools) | LangSmith、Langfuse、Phoenix、Helicone、Braintrust、Ragas、DeepEval、promptfoo 和 OpenTelemetry 的边界 |
 
 ## RAG 细分
 
-这一组更偏 RAG 链路设计，回答“检索系统应该怎样组织”。上面的技术组件文章更偏产品图谱，回答“具体候选方案怎么初筛”。
+这一组更偏 RAG 链路设计，回答“检索系统应该怎样组织”。如果要比较具体 Embedding、向量库和 Reranker 候选，回到工具与组件选型。
 
 | 文章 | 解决什么 |
 | --- | --- |
-| [向量库怎么选](/agent-selection/19-vector-database-selection) | 向量库、metadata filter、多租户和运维 |
-| [Hybrid、Rerank、GraphRAG、Long Context 怎么选](/agent-selection/20-retrieval-patterns) | 不同检索增强方案的边界 |
 | [企业知识库权限过滤怎么设计](/agent-selection/21-enterprise-knowledge-permission) | 检索前过滤、ACL、脱敏和审计 |
-| [代码库 RAG 为什么不能按普通文档做](/agent-selection/22-code-rag-structure) | 文件、符号、调用关系和测试关系 |
 
 ## 工具与生产工程
 
-这一组更偏上线边界、权限、审计和故障处理，不负责列全工具生态。需要具体工具候选时，再回到技术组件选型。
+这一组更偏上线边界、权限、审计和故障处理。它回答“选完工具后，怎么让系统能安全、可控、可复盘地上线”。
 
 | 文章 | 解决什么 |
 | --- | --- |
 | [MCP 工具怎么选](/agent-selection/23-mcp-tool-selection) | MCP server、工具权限和工具质量 |
-| [浏览器自动化、网页抓取、搜索 API 怎么分工](/agent-selection/24-browser-crawl-search) | Search、Reader、Crawler 和 Browser |
 | [Text-to-SQL Agent 怎么选型](/agent-selection/25-text-to-sql-agent) | 数据库权限、SQL 审核和审计 |
 | [高风险工具执行前的人机确认怎么设计](/agent-selection/26-human-approval) | 审批点、执行边界和回放 |
 | [Agent 可观测性怎么选](/agent-selection/27-observability-trace-replay-eval) | Trace、Replay、Eval 和日志指标 |
