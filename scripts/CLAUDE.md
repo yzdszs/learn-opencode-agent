@@ -19,7 +19,7 @@
 
 | 脚本 | 校验内容 | npm 别名 |
 | --- | --- | --- |
-| `check-content.mjs` | 必需 Markdown 文件存在性、禁止词（TODO/FIXME/TBD/待补/需要补充） | `check:content` |
+| `check-content.mjs` | 必需 Markdown 文件存在性、禁止词（TODO/FIXME/TBD/待补/需要补充）、代码围栏语言标签合法性 | `check:content` |
 | `check-practice-entries.mjs` | `practice/*.ts` 与 `docs/practice/` 一一对应 | `check:practice` |
 | `check-learning-metadata.mjs` | 章节 frontmatter 学习元数据字段完整性 | `check:learning-metadata` |
 | `check-learning-paths.mjs` | `learning-paths.data.ts` 中 `step.contentId` 全站可解析 | `check:learning-paths` |
@@ -36,7 +36,7 @@
 ## 关键依赖与配置
 
 - 仅依赖 Node 内置模块（`node:fs/promises`、`node:path`、`node:url`），无外部依赖。
-- 允许白名单：`check-content.mjs` 中 `allowLinePatterns` 放行示例性禁止词。
+- 允许白名单：`check-content.mjs` 中 `allowLinePatterns` 放行示例性禁止词；`allowedFenceLanguages` 登记合法代码围栏语言（写错标签如 `diagram` 会被拦下，避免 Shiki 静默回退为纯文本）。
 
 ## 测试与质量
 
@@ -45,6 +45,7 @@
 ## 常见问题 (FAQ)
 
 - 构建报禁止词？检查正文是否含 TODO/FIXME/TBD/待补/需要补充，确为示例则加入 `allowLinePatterns`。
+- 构建报未知代码围栏语言标签？确认标签拼写无误；若为新引入的合法语言，登记到 `check-content.mjs` 的 `allowedFenceLanguages`。
 - 新增内容专区后侧边栏校验失败？同步 `.vitepress/config.mts` 侧边栏与实际页面。
 
 ## 相关文件清单
