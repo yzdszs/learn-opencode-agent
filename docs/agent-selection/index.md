@@ -118,7 +118,8 @@ Agent Framework 决定任务怎么推进。
 | --- | --- |
 | [Agent 框架与 Runtime 怎么选](/agent-selection/01-agent-frameworks) | 判断是否需要 Agent Framework，对比自研 loop、LangChain、LangGraph、LlamaIndex、AutoGen、CrewAI、平台 SDK、MCP 和托管 Runtime |
 | [LangGraph 与平台 SDK 怎么选](/agent-selection/02-langgraph) | 判断状态图、平台 SDK、Tool Use 和轻量 loop 的取舍 |
-| [RAG 知识与检索选型](/agent-selection/03-rag-knowledge-selection) | 判断内部知识、向量库、混合检索和重排 |
+| [RAG 链路设计原则](/agent-selection/03-rag-knowledge-selection) | RAG 链路的正确设计顺序：parser、chunk、metadata、检索、重排、权限和评估 |
+| [RAG 平台与方案怎么选](/agent-selection/05-rag-platforms) | 判断自建 pipeline、RAGFlow、Dify、GraphRAG 和 Weaviate 的适用边界 |
 | [搜索与抓取工具怎么选](/agent-selection/04-search-tools) | 判断 Search API、Reader、Crawler、Browser 和 Scraper 的层级选型 |
 
 ## 场景化选型
@@ -171,9 +172,8 @@ Agent Framework 决定任务怎么推进。
 | --- | --- |
 | [MCP 工具怎么选](/agent-selection/23-mcp-tool-selection) | MCP server、工具权限和工具质量 |
 | [Text-to-SQL Agent 怎么选型](/agent-selection/25-text-to-sql-agent) | 数据库权限、SQL 审核和审计 |
-| [高风险工具执行前的人机确认怎么设计](/agent-selection/26-human-approval) | 审批点、执行边界和回放 |
-| [Agent 可观测性怎么选](/agent-selection/27-observability-trace-replay-eval) | Trace、Replay、Eval 和日志指标 |
-| [Agent 安全边界与权限模型怎么选](/agent-selection/28-security-permission-selection) | 数据权限、工具权限和 Prompt 注入防线 |
+| [Agent 可观测性与评估怎么选](/agent-selection/27-observability-trace-replay-eval) | Trace、Replay、Eval 和日志指标 |
+| [Agent 安全边界与权限模型怎么选](/agent-selection/28-security-permission-selection) | 数据权限、工具权限、人机确认和 Prompt 注入防线 |
 | [成本与延迟怎么纳入选型](/agent-selection/29-cost-latency-selection) | 预算、缓存、并发和模型路由 |
 | [Agent 降级策略怎么设计](/agent-selection/30-fallback-strategy) | 重试、fallback、拒答和转人工 |
 

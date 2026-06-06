@@ -582,8 +582,9 @@ export default withMermaid(defineConfig({
           items: [
             { text: '01：Agent 框架与 Runtime 选型', link: '/agent-selection/01-agent-frameworks' },
             { text: '02：LangGraph 与 SDK 选型', link: '/agent-selection/02-langgraph' },
-            { text: '03：RAG 知识与检索选型', link: '/agent-selection/03-rag-knowledge-selection' },
+            { text: '03：RAG 链路设计', link: '/agent-selection/03-rag-knowledge-selection' },
             { text: '04：搜索与抓取工具选型', link: '/agent-selection/04-search-tools' },
+            { text: '05：RAG 平台选型', link: '/agent-selection/05-rag-platforms' },
           ]
         },
         {
@@ -635,7 +636,6 @@ export default withMermaid(defineConfig({
           items: [
             { text: '23：MCP 工具选型', link: '/agent-selection/23-mcp-tool-selection' },
             { text: '25：Text-to-SQL 选型', link: '/agent-selection/25-text-to-sql-agent' },
-            { text: '26：人机确认设计', link: '/agent-selection/26-human-approval' },
             { text: '27：可观测性与评估选型', link: '/agent-selection/27-observability-trace-replay-eval' },
             { text: '28：安全权限选型', link: '/agent-selection/28-security-permission-selection' },
             { text: '29：成本延迟选型', link: '/agent-selection/29-cost-latency-selection' },
