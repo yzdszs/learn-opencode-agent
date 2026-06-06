@@ -203,6 +203,7 @@ export default withMermaid(defineConfig({
     nav: [
       { text: '实践篇', link: '/practice/', activeMatch: '/practice/' },
       { text: '中级篇', link: '/intermediate/', activeMatch: '/intermediate/' },
+      { text: '智能体选型', link: '/agent-selection/', activeMatch: '/agent-selection/' },
       { text: '动画实验室', link: '/animation-lab/', activeMatch: '/animation-lab/' },
       { text: '面试题专区', link: '/interview/', activeMatch: '/interview/' },
       {
@@ -572,6 +573,89 @@ export default withMermaid(defineConfig({
           ]
         },
       ],
+      '/agent-selection/': [
+        { text: '← 返回首页', link: '/' },
+        { text: '专区总览', link: '/agent-selection/' },
+        {
+          text: '基础判断',
+          collapsed: false,
+          items: [
+            { text: '01：Agent 框架怎么选', link: '/agent-selection/01-agent-frameworks' },
+            { text: '02：LangGraph 适合什么场景', link: '/agent-selection/02-langgraph' },
+            { text: '03：RAG 知识与检索选型', link: '/agent-selection/03-rag-knowledge-selection' },
+            { text: '04：搜索工具选型', link: '/agent-selection/04-search-tools' },
+            { text: '05：组合方案', link: '/agent-selection/05-composition-patterns' },
+            { text: '06：选型检查表', link: '/agent-selection/06-selection-checklist' },
+          ]
+        },
+        {
+          text: '场景化选型',
+          collapsed: false,
+          items: [
+            { text: '07：场景选型手册', link: '/agent-selection/07-scenario-playbook' },
+            { text: '10：企业 Copilot 技术栈', link: '/agent-selection/10-enterprise-copilot-stack' },
+            { text: '11：代码库 Agent', link: '/agent-selection/11-codebase-agent-selection' },
+            { text: '12：研究型 Agent', link: '/agent-selection/12-research-agent-selection' },
+            { text: '13：客服知识库 Agent', link: '/agent-selection/13-customer-support-knowledge-agent' },
+          ]
+        },
+        {
+          text: '上线评审',
+          collapsed: false,
+          items: [
+            { text: '08：POC 与评估标准', link: '/agent-selection/08-poc-evaluation' },
+            { text: '09：自研还是托管', link: '/agent-selection/09-build-vs-buy' },
+            { text: '14：选型评审模板', link: '/agent-selection/14-selection-review-template' },
+            { text: '15：供应商锁定评估', link: '/agent-selection/15-vendor-lock-in' },
+          ]
+        },
+        {
+          text: '模型与平台',
+          collapsed: false,
+          items: [
+            { text: '16：模型路由', link: '/agent-selection/16-model-routing-selection' },
+            { text: '17：SDK、Tool Use、LangGraph', link: '/agent-selection/17-sdk-tools-langgraph' },
+            { text: '18：托管平台 vs Runtime', link: '/agent-selection/18-managed-platform-vs-runtime' },
+          ]
+        },
+        {
+          text: '技术组件选型',
+          collapsed: false,
+          items: [
+            { text: '31：Embedding 模型', link: '/agent-selection/31-embedding-models' },
+            { text: '32：向量数据库图谱', link: '/agent-selection/32-vector-databases' },
+            { text: '33：Hybrid 与 Rerank', link: '/agent-selection/33-hybrid-retrieval-rerank' },
+            { text: '34：Agent 框架组件图谱', link: '/agent-selection/34-agent-frameworks-landscape' },
+            { text: '35：Reranker 模型', link: '/agent-selection/35-reranker-models' },
+            { text: '36：搜索抓取工具', link: '/agent-selection/36-search-reader-crawler-browser-tools' },
+            { text: '37：观测评估工具', link: '/agent-selection/37-observability-evaluation-tools' },
+          ]
+        },
+        {
+          text: 'RAG 细分',
+          collapsed: false,
+          items: [
+            { text: '19：向量库选型', link: '/agent-selection/19-vector-database-selection' },
+            { text: '20：检索模式选型', link: '/agent-selection/20-retrieval-patterns' },
+            { text: '21：知识权限设计', link: '/agent-selection/21-enterprise-knowledge-permission' },
+            { text: '22：代码库 RAG 结构', link: '/agent-selection/22-code-rag-structure' },
+          ]
+        },
+        {
+          text: '工具与生产工程',
+          collapsed: false,
+          items: [
+            { text: '23：MCP 工具选型', link: '/agent-selection/23-mcp-tool-selection' },
+            { text: '24：浏览器、抓取、搜索', link: '/agent-selection/24-browser-crawl-search' },
+            { text: '25：Text-to-SQL 选型', link: '/agent-selection/25-text-to-sql-agent' },
+            { text: '26：人机确认设计', link: '/agent-selection/26-human-approval' },
+            { text: '27：可观测性选型', link: '/agent-selection/27-observability-trace-replay-eval' },
+            { text: '28：安全权限选型', link: '/agent-selection/28-security-permission-selection' },
+            { text: '29：成本延迟选型', link: '/agent-selection/29-cost-latency-selection' },
+            { text: '30：降级策略设计', link: '/agent-selection/30-fallback-strategy' },
+          ]
+        },
+      ],
       '/intermediate/': [
         { text: '← 返回首页', link: '/' },
         { text: '回到实践篇', link: '/practice/' },
@@ -630,6 +714,7 @@ export default withMermaid(defineConfig({
         { text: '动画实验室', link: '/animation-lab/' },
         { text: '实践篇总览', link: '/practice/' },
         { text: '中级篇导读', link: '/intermediate/' },
+        { text: '智能体选型', link: '/agent-selection/' },
         { text: '面试题专区', link: '/interview/' },
         { text: '术语表', link: '/glossary' },
         {
