@@ -142,6 +142,77 @@ Authentication
 
 工具描述不是给人看的注释，它会直接影响模型是否正确调用工具。
 
+## Transport 选型
+
+MCP 支持三种传输方式，选择影响部署架构和安全模型：
+
+| Transport | 适合 | 特点 | 注意 |
+| --- | --- | --- | --- |
+| stdio | 本地开发、CLI 工具 | 最简单，父进程启动子进程 | 不适合多客户端、不适合网络部署 |
+| HTTP + SSE | Web 服务、远程工具 | 无需持久连接，易横向扩展 | SSE 为服务端推送，需处理重连 |
+| WebSocket | 低延迟双向通信 | 持久连接，适合实时交互 | 需要处理连接状态和心跳 |
+
+生产环境推荐：**单客户端本地工具用 stdio；多客户端共享或远程服务用 HTTP + SSE**。WebSocket 适合需要服务端主动推送的实时场景（如实时日志 streaming）。
+
+### 不同 Transport 的安全差异
+
+| Transport | 认证方式 | 风险点 |
+| --- | --- | --- |
+| stdio | 依赖进程隔离 | server 以调用者身份运行，权限取决于进程 |
+| HTTP + SSE | Bearer Token / API Key / OAuth | 需要 TLS，token 不能硬编码 |
+| WebSocket | 同 HTTP，初始握手时认证 | 长连接需要定期续期和状态验证 |
+
+## 多 Server 组合
+
+Agent 通常需要多个 MCP Server 同时工作。组合时要注意：
+
+### 工具命名冲突
+
+多个 server 可能有同名工具（例如都有 `search` 或 `read_file`）。客户端应该：
+
+- 为工具名加上 server 前缀（`github__search`、`local_fs__read_file`）；
+- 或者由客户端维护工具名到 server 的映射表；
+- 避免让模型在没有上下文的情况下猜应该调用哪个 server 的工具。
+
+### Server 启动顺序和依赖
+
+- 需要数据库 server 先启动再启动应用 server 的情况，要明确启动顺序；
+- server 启动失败时，是降级（只使用可用 server）还是整体失败，要事先决定；
+- 健康检查：定期 ping 各 server，失败时切换到备用 server 或降级。
+
+### 权限隔离
+
+多 server 场景下，每个 server 应该只能访问自己负责的数据域：
+
+```text
+github_server  -> 只访问 GitHub API
+database_server -> 只连接指定数据库
+filesystem_server -> 只访问指定目录
+```
+
+不要让一个 server 拿到所有权限，然后根据工具名自行限制。权限隔离应该在 server 层而不是 Prompt 层。
+
+## Tool Schema 版本管理
+
+MCP Server 的工具 schema 会随时间变化，版本管理影响客户端稳定性。
+
+### Schema 变更类型
+
+| 变更类型 | 是否兼容 | 处理方式 |
+| --- | --- | --- |
+| 新增可选参数 | 向后兼容 | 直接发布 |
+| 新增必填参数 | 破坏性变更 | 需要版本号或迁移期 |
+| 参数类型变更 | 破坏性变更 | 版本号必须升级 |
+| 工具名称变更 | 破坏性变更 | 保留旧名称一段时间 |
+| 返回结构变更 | 破坏性变更 | 客户端需同步更新 |
+
+### 版本策略
+
+- 在 server capabilities 里声明版本（`server_version: "1.2.0"`）；
+- 破坏性变更使用主版本号（`v1` → `v2`）；
+- 为客户端提供迁移指南和变更日志；
+- 生产 server 上线前在测试环境验证工具调用的完整链路。
+
 ## 认证和部署边界
 
 MCP Server 部署时要明确：

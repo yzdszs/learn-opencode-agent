@@ -276,3 +276,5 @@ RAG 质量：Retrieval + Generation 分层评估
 ```
 
 生产 Agent 没有观测和评估，就是黑盒。黑盒不能上线高风险场景。
+
+> Replay 发现失败时的降级处理策略见 [Agent 降级策略怎么设计](/agent-selection/24-fallback-strategy)；监控中的成本和延迟告警阈值设定见 [成本与延迟预算检查](/agent-selection/23-cost-latency-selection)。
