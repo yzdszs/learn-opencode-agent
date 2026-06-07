@@ -580,79 +580,66 @@ export default withMermaid(defineConfig({
           text: '基础判断',
           collapsed: false,
           items: [
-            { text: '01：Agent 框架怎么选', link: '/agent-selection/01-agent-frameworks' },
-            { text: '02：LangGraph 适合什么场景', link: '/agent-selection/02-langgraph' },
-            { text: '03：RAG 知识与检索选型', link: '/agent-selection/03-rag-knowledge-selection' },
-            { text: '04：搜索工具选型', link: '/agent-selection/04-search-tools' },
-            { text: '05：组合方案', link: '/agent-selection/05-composition-patterns' },
-            { text: '06：选型检查表', link: '/agent-selection/06-selection-checklist' },
+            { text: '01：Agent 框架与 Runtime 选型', link: '/agent-selection/01-agent-frameworks' },
+            { text: '02：LangGraph 与 SDK 选型', link: '/agent-selection/02-langgraph' },
+            { text: '03：RAG 链路设计', link: '/agent-selection/03-rag-knowledge-selection' },
+            { text: '04：搜索与抓取工具选型', link: '/agent-selection/04-search-tools' },
+            { text: '05：RAG 平台选型', link: '/agent-selection/05-rag-platforms' },
           ]
         },
         {
           text: '场景化选型',
           collapsed: false,
           items: [
-            { text: '07：场景选型手册', link: '/agent-selection/07-scenario-playbook' },
-            { text: '10：企业 Copilot 技术栈', link: '/agent-selection/10-enterprise-copilot-stack' },
-            { text: '11：代码库 Agent', link: '/agent-selection/11-codebase-agent-selection' },
-            { text: '12：研究型 Agent', link: '/agent-selection/12-research-agent-selection' },
-            { text: '13：客服知识库 Agent', link: '/agent-selection/13-customer-support-knowledge-agent' },
+            { text: '06：场景选型手册', link: '/agent-selection/06-scenario-playbook' },
+            { text: '09：企业 Copilot 技术栈', link: '/agent-selection/09-enterprise-copilot-stack' },
+            { text: '10：代码库 Agent', link: '/agent-selection/10-codebase-agent-selection' },
+            { text: '11：研究型 Agent', link: '/agent-selection/11-research-agent-selection' },
+            { text: '12：客服知识库 Agent', link: '/agent-selection/12-customer-support-knowledge-agent' },
           ]
         },
         {
           text: '上线评审',
           collapsed: false,
           items: [
-            { text: '08：POC 与评估标准', link: '/agent-selection/08-poc-evaluation' },
-            { text: '09：自研还是托管', link: '/agent-selection/09-build-vs-buy' },
-            { text: '14：选型评审模板', link: '/agent-selection/14-selection-review-template' },
-            { text: '15：供应商锁定评估', link: '/agent-selection/15-vendor-lock-in' },
+            { text: '07：POC 评估与评审', link: '/agent-selection/07-poc-evaluation' },
+            { text: '08：自研还是托管', link: '/agent-selection/08-build-vs-buy' },
           ]
         },
         {
           text: '模型与平台',
           collapsed: false,
           items: [
-            { text: '16：模型路由', link: '/agent-selection/16-model-routing-selection' },
-            { text: '17：SDK、Tool Use、LangGraph', link: '/agent-selection/17-sdk-tools-langgraph' },
-            { text: '18：托管平台 vs Runtime', link: '/agent-selection/18-managed-platform-vs-runtime' },
+            { text: '13：模型路由', link: '/agent-selection/13-model-routing-selection' },
           ]
         },
         {
-          text: '技术组件选型',
+          text: '工具与组件选型',
           collapsed: false,
           items: [
-            { text: '31：Embedding 模型', link: '/agent-selection/31-embedding-models' },
-            { text: '32：向量数据库图谱', link: '/agent-selection/32-vector-databases' },
-            { text: '33：Hybrid 与 Rerank', link: '/agent-selection/33-hybrid-retrieval-rerank' },
-            { text: '34：Agent 框架组件图谱', link: '/agent-selection/34-agent-frameworks-landscape' },
-            { text: '35：Reranker 模型', link: '/agent-selection/35-reranker-models' },
-            { text: '36：搜索抓取工具', link: '/agent-selection/36-search-reader-crawler-browser-tools' },
-            { text: '37：观测评估工具', link: '/agent-selection/37-observability-evaluation-tools' },
+            { text: '14：Embedding 模型', link: '/agent-selection/14-embedding-models' },
+            { text: '15：向量数据库选型', link: '/agent-selection/15-vector-database-selection' },
+            { text: '16：检索组件选型', link: '/agent-selection/16-retrieval-patterns' },
+            { text: '17：Reranker 模型', link: '/agent-selection/17-reranker-models' },
           ]
         },
         {
           text: 'RAG 细分',
           collapsed: false,
           items: [
-            { text: '19：向量库选型', link: '/agent-selection/19-vector-database-selection' },
-            { text: '20：检索模式选型', link: '/agent-selection/20-retrieval-patterns' },
-            { text: '21：知识权限设计', link: '/agent-selection/21-enterprise-knowledge-permission' },
-            { text: '22：代码库 RAG 结构', link: '/agent-selection/22-code-rag-structure' },
+            { text: '18：知识权限设计', link: '/agent-selection/18-enterprise-knowledge-permission' },
           ]
         },
         {
-          text: '工具与生产工程',
+          text: '生产准入',
           collapsed: false,
           items: [
-            { text: '23：MCP 工具选型', link: '/agent-selection/23-mcp-tool-selection' },
-            { text: '24：浏览器、抓取、搜索', link: '/agent-selection/24-browser-crawl-search' },
-            { text: '25：Text-to-SQL 选型', link: '/agent-selection/25-text-to-sql-agent' },
-            { text: '26：人机确认设计', link: '/agent-selection/26-human-approval' },
-            { text: '27：可观测性选型', link: '/agent-selection/27-observability-trace-replay-eval' },
-            { text: '28：安全权限选型', link: '/agent-selection/28-security-permission-selection' },
-            { text: '29：成本延迟选型', link: '/agent-selection/29-cost-latency-selection' },
-            { text: '30：降级策略设计', link: '/agent-selection/30-fallback-strategy' },
+            { text: '19：MCP 工具选型', link: '/agent-selection/19-mcp-tool-selection' },
+            { text: '20：Text-to-SQL 选型', link: '/agent-selection/20-text-to-sql-agent' },
+            { text: '21：可观测性与评估选型', link: '/agent-selection/21-observability-trace-replay-eval' },
+            { text: '22：安全权限选型', link: '/agent-selection/22-security-permission-selection' },
+            { text: '23：成本延迟预算检查', link: '/agent-selection/23-cost-latency-selection' },
+            { text: '24：降级策略设计', link: '/agent-selection/24-fallback-strategy' },
           ]
         },
       ],

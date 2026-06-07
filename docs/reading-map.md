@@ -15,7 +15,7 @@ description: 这本电子书的推荐阅读顺序与章节关系图
   :support-links="[
     { label: '直接去实践篇', href: '/practice/', hint: '如果你已经决定先做项目，直接进入项目总览。' },
     { label: '直接去中级篇', href: '/intermediate/', hint: '如果你已经做过基础闭环，直接进入工程专题。' },
-    { label: '进入智能体选型', href: '/agent-selection/', hint: '如果你正在判断 Agent 框架、RAG、搜索工具和组合方案的取舍，直接进入选型专区。' }
+    { label: '进入智能体选型', href: '/agent-selection/', hint: '如果你正在判断 Agent 框架、RAG 和搜索工具的取舍，直接进入选型专区。' }
   ]"
 />
 
@@ -30,7 +30,7 @@ description: 这本电子书的推荐阅读顺序与章节关系图
 - [查看学习路径](/learning-paths/) - 用三条路线卡片决定理论 / 实践 / 工程专题的推进顺序
 - [直接进入实践篇](/practice/) - 如果你更想先跑项目
 - [进入中级篇](/intermediate/) - 当你已经做过基础闭环并开始关心工程问题
-- [智能体选型](/agent-selection/) - 如果你正在判断 Agent 框架、LangGraph、RAG、搜索工具和组合方案
+- [智能体选型](/agent-selection/) - 如果你正在判断 Agent 框架、LangGraph、RAG 和搜索工具
 - [企业 Agent 落地线](/enterprise-agent/) - 如果你想把 Agent 从 Demo 推到企业内部真实系统
 
 ## 核心概念快速定位
@@ -92,14 +92,14 @@ Agent 的核心执行流程：
 
 ## 独立专区：智能体选型
 
-如果你的问题不是“继续读哪一章”，而是“我的项目到底该用 Agent Framework、LangGraph、RAG、Search Tools 还是组合方案”，进入 [智能体选型](/agent-selection/)。
+如果你的问题不是“继续读哪一章”，而是“我的项目到底该用 Agent Framework、LangGraph、RAG 还是 Search Tools”，进入 [智能体选型](/agent-selection/)。
 
 推荐路径：
 
-1. 先读 [专区总览](/agent-selection/) 和 [选型检查表](/agent-selection/06-selection-checklist)。
-2. 如果在做业务方案，读 [场景选型手册](/agent-selection/07-scenario-playbook)。
-3. 如果准备立项或上线，读 [POC 与评估标准](/agent-selection/08-poc-evaluation) 和 [Agent 选型评审模板](/agent-selection/14-selection-review-template)。
-4. 如果在选平台，读 [自研、框架还是托管平台](/agent-selection/09-build-vs-buy) 和 [供应商锁定怎么评估](/agent-selection/15-vendor-lock-in)。
+1. 先读 [专区总览](/agent-selection/)，再按业务场景进入对应文章。
+2. 如果在做业务方案，读 [场景选型手册](/agent-selection/06-scenario-playbook)。
+3. 如果准备立项或上线，读 [POC 评估与评审](/agent-selection/07-poc-evaluation)。
+4. 如果在选平台，读 [自研、平台还是托管](/agent-selection/08-build-vs-buy)。
 5. 如果已经确定技术方向，再进入对应的 RAG、工具、模型和生产工程细分文章。
 
 ## 四阶段课程分级
