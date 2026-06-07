@@ -1,5 +1,6 @@
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import { defineConfig } from 'vitepress'
+import type { HeadConfig } from 'vitepress'
 import {
   getContentTypeLabel,
   getEntryModeLabel,
@@ -12,6 +13,26 @@ const bookRepository = 'https://github.com/qqzhangyanhua/learn-opencode-agent'
 const sourceCommit = 'f8475649da1cd7a6d49f8f30ee2fad374c2f4fcc'
 const sourceRepository = `https://github.com/anomalyco/opencode/tree/${sourceCommit}`
 const sourceRepositoryLatest = 'https://github.com/anomalyco/opencode/tree/dev'
+const googleAnalyticsId = 'G-Y83BLPR05T'
+const googleAnalyticsHead: HeadConfig[] = process.env.NODE_ENV === 'production'
+  ? [
+      [
+        'script',
+        {
+          async: '',
+          src: `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`
+        }
+      ],
+      [
+        'script',
+        {},
+        `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${googleAnalyticsId}');`
+      ]
+    ]
+  : []
 
 function stripWrappingQuotes(value: string): string {
   if (
@@ -135,6 +156,7 @@ export default withMermaid(defineConfig({
   description: siteDescription,
   lang: 'zh-CN',
   lastUpdated: true,
+  head: googleAnalyticsHead,
   ignoreDeadLinks: [
     /\/docs\//,
     /\/plugins\//,
