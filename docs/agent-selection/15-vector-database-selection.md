@@ -17,8 +17,8 @@ prerequisites:
   - 已了解 RAG 知识与检索选型
   - 了解向量检索基本概念
 recommendedNext:
-  - /agent-selection/33-hybrid-retrieval-rerank
-  - /agent-selection/21-enterprise-knowledge-permission
+  - /agent-selection/16-retrieval-patterns
+  - /agent-selection/18-enterprise-knowledge-permission
   - /practice/p09-hybrid-retrieval/
 practiceLinks:
   - /practice/p07-rag-basics/

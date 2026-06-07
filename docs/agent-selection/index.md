@@ -19,11 +19,11 @@ prerequisites:
   - 了解 RAG 的基本含义
 recommendedNext:
   - /agent-selection/01-agent-frameworks
-  - /agent-selection/07-scenario-playbook
-  - /agent-selection/08-poc-evaluation
-  - /agent-selection/19-vector-database-selection
-  - /agent-selection/20-retrieval-patterns
-  - /agent-selection/31-embedding-models
+  - /agent-selection/06-scenario-playbook
+  - /agent-selection/07-poc-evaluation
+  - /agent-selection/15-vector-database-selection
+  - /agent-selection/16-retrieval-patterns
+  - /agent-selection/14-embedding-models
 practiceLinks:
   - /practice/p07-rag-basics/
   - /practice/p09-hybrid-retrieval/
@@ -78,7 +78,7 @@ Search Tools
 | 要连续执行多步任务 | [Agent Framework](/agent-selection/01-agent-frameworks) | 不要只靠 Prompt 硬撑流程 |
 | 已经确定需要状态图、恢复和人工确认 | [LangGraph 与 SDK](/agent-selection/02-langgraph) | 不要把简单流程画成复杂图 |
 | 要内部知识和外部实时信息交叉验证 | [RAG 知识与检索选型](/agent-selection/03-rag-knowledge-selection) + [搜索与抓取工具选型](/agent-selection/04-search-tools) | 不要把两类来源混在一个检索器里 |
-| 要生产可审计、可恢复、可观测 | [Agent 可观测性与评估怎么选](/agent-selection/27-observability-trace-replay-eval) | 不要上线不可回放的黑盒链路 |
+| 要生产可审计、可恢复、可观测 | [Agent 可观测性与评估怎么选](/agent-selection/21-observability-trace-replay-eval) | 不要上线不可回放的黑盒链路 |
 
 ## 三层模型
 
@@ -126,24 +126,24 @@ Agent Framework 决定任务怎么推进。
 
 | 文章 | 解决什么 |
 | --- | --- |
-| [场景选型手册](/agent-selection/07-scenario-playbook) | 用一张表快速映射典型业务场景 |
-| [企业 Copilot 技术栈怎么选](/agent-selection/10-enterprise-copilot-stack) | 企业内部助手的权限、工具和审计边界 |
-| [代码库 Agent 怎么选](/agent-selection/11-codebase-agent-selection) | 代码问答、代码修改和自动修复 |
-| [研究型 Agent 怎么选](/agent-selection/12-research-agent-selection) | Search、Reader、RAG 和引用 |
-| [客服和知识库 Agent 怎么选](/agent-selection/13-customer-support-knowledge-agent) | FAQ、客服、转人工和知识治理 |
+| [场景选型手册](/agent-selection/06-scenario-playbook) | 用一张表快速映射典型业务场景 |
+| [企业 Copilot 技术栈怎么选](/agent-selection/09-enterprise-copilot-stack) | 企业内部助手的权限、工具和审计边界 |
+| [代码库 Agent 怎么选](/agent-selection/10-codebase-agent-selection) | 代码问答、代码修改和自动修复 |
+| [研究型 Agent 怎么选](/agent-selection/11-research-agent-selection) | Search、Reader、RAG 和引用 |
+| [客服和知识库 Agent 怎么选](/agent-selection/12-customer-support-knowledge-agent) | FAQ、客服、转人工和知识治理 |
 
 ## 上线评审
 
 | 文章 | 解决什么 |
 | --- | --- |
-| [POC 评估与评审](/agent-selection/08-poc-evaluation) | 样本集、指标、通过标准、上线缺口和评审模板 |
-| [自研、平台还是托管](/agent-selection/09-build-vs-buy) | Build vs Buy、供应商锁定评估、托管平台 vs 自建 Runtime |
+| [POC 评估与评审](/agent-selection/07-poc-evaluation) | 样本集、指标、通过标准、上线缺口和评审模板 |
+| [自研、平台还是托管](/agent-selection/08-build-vs-buy) | Build vs Buy、供应商锁定评估、托管平台 vs 自建 Runtime |
 
 ## 模型与平台
 
 | 文章 | 解决什么 |
 | --- | --- |
-| [模型路由怎么选](/agent-selection/16-model-routing-selection) | 小模型、大模型、长上下文和 fallback |
+| [模型路由怎么选](/agent-selection/13-model-routing-selection) | 小模型、大模型、长上下文和 fallback |
 
 ## 工具与组件选型
 
@@ -151,10 +151,10 @@ Agent Framework 决定任务怎么推进。
 
 | 文章 | 解决什么 |
 | --- | --- |
-| [Embedding 模型怎么选](/agent-selection/31-embedding-models) | OpenAI、Cohere、Voyage、BGE、E5、GTE、Jina、Nomic 等模型的场景取舍 |
-| [向量数据库怎么选](/agent-selection/19-vector-database-selection) | Milvus、Qdrant、Pinecone、Weaviate、Chroma、pgvector、ES/OpenSearch 等方案的适用边界 |
-| [检索组件怎么选](/agent-selection/20-retrieval-patterns) | Dense、BM25、Hybrid、Rerank、Query Rewrite、GraphRAG、Long Context 等检索组件的分工 |
-| [Reranker 模型怎么选](/agent-selection/35-reranker-models) | Cohere、Voyage、Jina、BGE、ColBERT、LLM-as-reranker 和自训练 Reranker 的场景取舍 |
+| [Embedding 模型怎么选](/agent-selection/14-embedding-models) | OpenAI、Cohere、Voyage、BGE、E5、GTE、Jina、Nomic 等模型的场景取舍 |
+| [向量数据库怎么选](/agent-selection/15-vector-database-selection) | Milvus、Qdrant、Pinecone、Weaviate、Chroma、pgvector、ES/OpenSearch 等方案的适用边界 |
+| [检索组件怎么选](/agent-selection/16-retrieval-patterns) | Dense、BM25、Hybrid、Rerank、Query Rewrite、GraphRAG、Long Context 等检索组件的分工 |
+| [Reranker 模型怎么选](/agent-selection/17-reranker-models) | Cohere、Voyage、Jina、BGE、ColBERT、LLM-as-reranker 和自训练 Reranker 的场景取舍 |
 
 ## RAG 细分
 
@@ -162,20 +162,20 @@ Agent Framework 决定任务怎么推进。
 
 | 文章 | 解决什么 |
 | --- | --- |
-| [企业知识库权限过滤怎么设计](/agent-selection/21-enterprise-knowledge-permission) | 检索前过滤、ACL、脱敏和审计 |
+| [企业知识库权限过滤怎么设计](/agent-selection/18-enterprise-knowledge-permission) | 检索前过滤、ACL、脱敏和审计 |
 
-## 工具与生产工程
+## 生产准入
 
-这一组更偏上线边界、权限、审计和故障处理。它回答“选完工具后，怎么让系统能安全、可控、可复盘地上线”。
+这一组不是继续堆工具，而是回答“选完技术组合后，什么条件满足才允许进入生产”。核心是可观测、安全、预算和降级。
 
 | 文章 | 解决什么 |
 | --- | --- |
-| [MCP 工具怎么选](/agent-selection/23-mcp-tool-selection) | MCP server、工具权限和工具质量 |
-| [Text-to-SQL Agent 怎么选型](/agent-selection/25-text-to-sql-agent) | 数据库权限、SQL 审核和审计 |
-| [Agent 可观测性与评估怎么选](/agent-selection/27-observability-trace-replay-eval) | Trace、Replay、Eval 和日志指标 |
-| [Agent 安全边界与权限模型怎么选](/agent-selection/28-security-permission-selection) | 数据权限、工具权限、人机确认和 Prompt 注入防线 |
-| [成本与延迟怎么纳入选型](/agent-selection/29-cost-latency-selection) | 预算、缓存、并发和模型路由 |
-| [Agent 降级策略怎么设计](/agent-selection/30-fallback-strategy) | 重试、fallback、拒答和转人工 |
+| [MCP 工具怎么选](/agent-selection/19-mcp-tool-selection) | MCP server、工具权限和工具质量 |
+| [Text-to-SQL Agent 怎么选型](/agent-selection/20-text-to-sql-agent) | 数据库权限、SQL 审核和审计 |
+| [Agent 可观测性与评估怎么选](/agent-selection/21-observability-trace-replay-eval) | Trace、Replay、Eval 和日志指标 |
+| [Agent 安全边界与权限模型怎么选](/agent-selection/22-security-permission-selection) | 数据权限、工具权限、人机确认和 Prompt 注入防线 |
+| [成本与延迟预算检查](/agent-selection/23-cost-latency-selection) | Token、动作、时间预算和超预算处理 |
+| [Agent 降级策略怎么设计](/agent-selection/24-fallback-strategy) | 重试、fallback、拒答和转人工 |
 
 ## 读完之后应该能做什么
 

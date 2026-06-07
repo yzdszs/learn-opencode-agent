@@ -19,8 +19,8 @@ prerequisites:
   - 了解基础 RAG
 recommendedNext:
   - /agent-selection/02-langgraph
-  - /agent-selection/07-scenario-playbook
-  - /agent-selection/23-mcp-tool-selection
+  - /agent-selection/06-scenario-playbook
+  - /agent-selection/19-mcp-tool-selection
 practiceLinks:
   - /practice/p10-react-loop/
   - /practice/p11-planning/

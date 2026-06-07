@@ -16,8 +16,8 @@ prerequisites:
   - 已了解工具调用和权限边界
   - 了解数据库查询基础
 recommendedNext:
-  - /agent-selection/26-human-approval
-  - /agent-selection/28-security-permission-selection
+  - /agent-selection/22-security-permission-selection
+  - /agent-selection/21-observability-trace-replay-eval
   - /practice/p19-security/
 practiceLinks:
   - /practice/p19-security/

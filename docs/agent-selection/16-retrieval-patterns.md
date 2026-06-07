@@ -17,8 +17,8 @@ prerequisites:
   - 了解 RAG 基础概念
   - 了解 Embedding 和向量数据库
 recommendedNext:
-  - /agent-selection/21-enterprise-knowledge-permission
-  - /agent-selection/22-code-rag-structure
+  - /agent-selection/18-enterprise-knowledge-permission
+  - /agent-selection/10-codebase-agent-selection
   - /practice/p09-hybrid-retrieval/
 practiceLinks:
   - /practice/p08-graphrag/

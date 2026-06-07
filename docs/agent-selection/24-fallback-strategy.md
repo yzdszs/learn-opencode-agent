@@ -16,8 +16,8 @@ prerequisites:
   - 已了解模型路由和可观测性
   - 已了解 Agent 框架、RAG 和搜索工具边界
 recommendedNext:
-  - /agent-selection/27-observability-trace-replay-eval
-  - /agent-selection/29-cost-latency-selection
+  - /agent-selection/21-observability-trace-replay-eval
+  - /agent-selection/23-cost-latency-selection
   - /practice/p20-observability/
 practiceLinks:
   - /practice/p18-model-routing/

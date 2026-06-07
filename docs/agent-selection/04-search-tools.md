@@ -18,8 +18,8 @@ prerequisites:
   - 了解 RAG 与搜索的区别
   - 了解基本 Web Search 场景
 recommendedNext:
-  - /agent-selection/12-research-agent-selection
-  - /agent-selection/23-mcp-tool-selection
+  - /agent-selection/11-research-agent-selection
+  - /agent-selection/19-mcp-tool-selection
 practiceLinks:
   - /practice/p14-mcp/
   - /practice/p18-model-routing/

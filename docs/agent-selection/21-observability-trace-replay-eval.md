@@ -17,8 +17,8 @@ prerequisites:
   - 已了解 Agent 框架、RAG 和搜索工具边界
   - 已了解 POC 与评估标准
 recommendedNext:
-  - /agent-selection/29-cost-latency-selection
-  - /agent-selection/30-fallback-strategy
+  - /agent-selection/23-cost-latency-selection
+  - /agent-selection/24-fallback-strategy
   - /practice/p20-observability/
 practiceLinks:
   - /practice/p20-observability/

@@ -16,9 +16,9 @@ prerequisites:
   - 已了解 RAG 链路设计原则
   - 了解向量检索和 Embedding 基础
 recommendedNext:
-  - /agent-selection/19-vector-database-selection
-  - /agent-selection/20-retrieval-patterns
-  - /agent-selection/21-enterprise-knowledge-permission
+  - /agent-selection/15-vector-database-selection
+  - /agent-selection/16-retrieval-patterns
+  - /agent-selection/18-enterprise-knowledge-permission
 practiceLinks:
   - /practice/p07-rag-basics/
   - /practice/p08-graphrag/
@@ -148,7 +148,7 @@ GraphRAG 不是普通 RAG 的升级版，而是完全不同的检索范式。它
 - 没有跨文档问题样本；
 - 团队没有图谱维护能力。
 
-GraphRAG 的关键不是"有没有图数据库"，而是实体和关系抽取是否可靠。如果抽取质量不稳定，图只会把噪声组织得更像真的。具体技术细节见 [检索组件选型](/agent-selection/20-retrieval-patterns)。
+GraphRAG 的关键不是"有没有图数据库"，而是实体和关系抽取是否可靠。如果抽取质量不稳定，图只会把噪声组织得更像真的。具体技术细节见 [检索组件选型](/agent-selection/16-retrieval-patterns)。
 
 ## 什么时候用 Weaviate 内置 RAG
 

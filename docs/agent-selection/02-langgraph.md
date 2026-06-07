@@ -19,8 +19,8 @@ prerequisites:
   - 了解多步骤任务执行
 recommendedNext:
   - /agent-selection/03-rag-knowledge-selection
-  - /agent-selection/07-scenario-playbook
-  - /agent-selection/26-human-approval
+  - /agent-selection/06-scenario-playbook
+  - /agent-selection/22-security-permission-selection
 practiceLinks:
   - /practice/p10-react-loop/
   - /practice/p11-planning/

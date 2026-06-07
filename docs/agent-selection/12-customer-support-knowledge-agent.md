@@ -16,8 +16,8 @@ prerequisites:
   - 已了解 RAG 选型
   - 已了解智能体选型总览
 recommendedNext:
-  - /agent-selection/21-enterprise-knowledge-permission
-  - /agent-selection/08-poc-evaluation
+  - /agent-selection/18-enterprise-knowledge-permission
+  - /agent-selection/07-poc-evaluation
   - /practice/p21-evaluation/
 practiceLinks:
   - /practice/p07-rag-basics/

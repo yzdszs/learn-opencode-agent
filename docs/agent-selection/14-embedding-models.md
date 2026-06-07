@@ -16,8 +16,8 @@ prerequisites:
   - 了解 RAG 基础概念
   - 了解向量检索的基本含义
 recommendedNext:
-  - /agent-selection/32-vector-databases
-  - /agent-selection/33-hybrid-retrieval-rerank
+  - /agent-selection/15-vector-database-selection
+  - /agent-selection/16-retrieval-patterns
   - /agent-selection/03-rag-knowledge-selection
 practiceLinks:
   - /practice/p07-rag-basics/

@@ -16,9 +16,9 @@ prerequisites:
   - 已了解 Agent 框架、RAG 和搜索工具边界
   - 已阅读场景选型手册
 recommendedNext:
-  - /agent-selection/21-enterprise-knowledge-permission
-  - /agent-selection/26-human-approval
-  - /agent-selection/27-observability-trace-replay-eval
+  - /agent-selection/18-enterprise-knowledge-permission
+  - /agent-selection/22-security-permission-selection
+  - /agent-selection/21-observability-trace-replay-eval
 practiceLinks:
   - /practice/p19-security/
   - /practice/p20-observability/

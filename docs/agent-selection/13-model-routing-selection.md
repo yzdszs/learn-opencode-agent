@@ -16,8 +16,8 @@ prerequisites:
   - 了解模型调用和成本控制
   - 已了解 Agent 框架、RAG 和搜索工具边界
 recommendedNext:
-  - /agent-selection/29-cost-latency-selection
-  - /agent-selection/30-fallback-strategy
+  - /agent-selection/23-cost-latency-selection
+  - /agent-selection/24-fallback-strategy
   - /practice/p18-model-routing/
 practiceLinks:
   - /practice/p18-model-routing/

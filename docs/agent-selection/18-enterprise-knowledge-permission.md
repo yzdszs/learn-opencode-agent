@@ -16,8 +16,8 @@ prerequisites:
   - 已了解 RAG 选型
   - 已了解企业 Copilot 选型
 recommendedNext:
-  - /agent-selection/10-enterprise-copilot-stack
-  - /agent-selection/28-security-permission-selection
+  - /agent-selection/09-enterprise-copilot-stack
+  - /agent-selection/22-security-permission-selection
   - /practice/p19-security/
 practiceLinks:
   - /practice/p07-rag-basics/

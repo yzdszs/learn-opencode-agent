@@ -18,8 +18,8 @@ prerequisites:
   - 已了解 Agent Framework 和 RAG 选型
   - 了解代码库基本结构
 recommendedNext:
-  - /agent-selection/26-human-approval
-  - /agent-selection/20-retrieval-patterns
+  - /agent-selection/22-security-permission-selection
+  - /agent-selection/16-retrieval-patterns
   - /practice/p22-project/
 practiceLinks:
   - /practice/p10-react-loop/

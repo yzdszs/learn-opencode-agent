@@ -16,8 +16,8 @@ prerequisites:
   - 已了解 Agent 框架、RAG 和搜索工具边界
   - 已了解 Agent 框架、RAG 和搜索工具边界
 recommendedNext:
-  - /agent-selection/08-poc-evaluation
-  - /agent-selection/09-build-vs-buy
+  - /agent-selection/07-poc-evaluation
+  - /agent-selection/08-build-vs-buy
   - /practice/p20-observability/
 practiceLinks:
   - /practice/p09-hybrid-retrieval/

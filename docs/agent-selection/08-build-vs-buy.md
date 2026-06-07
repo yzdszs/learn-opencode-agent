@@ -17,8 +17,8 @@ prerequisites:
   - 已了解 Agent 框架选型
   - 已了解 POC 与评估标准
 recommendedNext:
-  - /agent-selection/27-observability-trace-replay-eval
-  - /agent-selection/30-fallback-strategy
+  - /agent-selection/21-observability-trace-replay-eval
+  - /agent-selection/24-fallback-strategy
   - /practice/p20-observability/
 practiceLinks:
   - /practice/p18-model-routing/

@@ -22,6 +22,7 @@ import HomeStartPanel from './components/HomeStartPanel.vue'
 import EntryContextBanner from './components/EntryContextBanner.vue'
 import ChapterLearningGuide from './components/ChapterLearningGuide.vue'
 import ChapterActionPanel from './components/ChapterActionPanel.vue'
+import { installAgentSelectionRedirects } from './agent-selection-redirects'
 
 import './custom.css'
 
@@ -129,7 +130,9 @@ const AsyncPlanningFlowSimulator = asyncComponent(() =>
 
 export default {
   extends: DefaultTheme,
-  enhanceApp({ app }) {
+  enhanceApp({ app, router }) {
+    installAgentSelectionRedirects(router)
+
     for (const [name, component] of syncGlobalComponents) {
       app.component(name, component)
     }

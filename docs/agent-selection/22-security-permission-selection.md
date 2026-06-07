@@ -17,7 +17,7 @@ prerequisites:
   - 已了解企业知识库权限设计
   - 已了解工具调用和 Agent Framework
 recommendedNext:
-  - /agent-selection/21-enterprise-knowledge-permission
+  - /agent-selection/18-enterprise-knowledge-permission
   - /agent-selection/02-langgraph
   - /practice/p19-security/
 practiceLinks:

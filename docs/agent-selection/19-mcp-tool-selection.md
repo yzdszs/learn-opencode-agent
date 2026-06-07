@@ -16,8 +16,8 @@ prerequisites:
   - 了解 MCP 基础概念
   - 已了解工具执行和安全边界
 recommendedNext:
-  - /agent-selection/25-text-to-sql-agent
-  - /agent-selection/26-human-approval
+  - /agent-selection/20-text-to-sql-agent
+  - /agent-selection/22-security-permission-selection
   - /practice/p14-mcp/
 practiceLinks:
   - /practice/p14-mcp/

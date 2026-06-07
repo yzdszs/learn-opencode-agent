@@ -97,9 +97,9 @@ Agent 的核心执行流程：
 推荐路径：
 
 1. 先读 [专区总览](/agent-selection/)，再按业务场景进入对应文章。
-2. 如果在做业务方案，读 [场景选型手册](/agent-selection/07-scenario-playbook)。
-3. 如果准备立项或上线，读 [POC 评估与评审](/agent-selection/08-poc-evaluation)。
-4. 如果在选平台，读 [自研、平台还是托管](/agent-selection/09-build-vs-buy)。
+2. 如果在做业务方案，读 [场景选型手册](/agent-selection/06-scenario-playbook)。
+3. 如果准备立项或上线，读 [POC 评估与评审](/agent-selection/07-poc-evaluation)。
+4. 如果在选平台，读 [自研、平台还是托管](/agent-selection/08-build-vs-buy)。
 5. 如果已经确定技术方向，再进入对应的 RAG、工具、模型和生产工程细分文章。
 
 ## 四阶段课程分级

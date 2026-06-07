@@ -17,8 +17,8 @@ prerequisites:
   - 已了解智能体选型总览
   - 已了解典型场景选型
 recommendedNext:
-  - /agent-selection/09-build-vs-buy
-  - /agent-selection/15-vendor-lock-in
+  - /agent-selection/08-build-vs-buy
+  - /agent-selection/21-observability-trace-replay-eval
   - /practice/p21-evaluation/
 practiceLinks:
   - /practice/p18-model-routing/
