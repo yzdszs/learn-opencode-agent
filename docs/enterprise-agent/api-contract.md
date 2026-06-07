@@ -48,6 +48,18 @@ roleDescription: 准备实现企业 Agent HTTP 服务、确认接口和审计查
 
 第一版不需要很多接口，但这五个边界要清楚。
 
+它们和内部数据模型的对应关系可以先压成这样：
+
+| 接口 | 主要输入 | 主要输出 |
+| --- | --- | --- |
+| `POST /chat` | AgentRequest | AgentResponse |
+| `POST /confirm` | ConfirmationTicket 操作 | AgentResponse |
+| `GET /sessions/{session_id}` | session_id + 当前用户 | 任务状态 |
+| `GET /audit/{trace_id}` | trace_id + 审计权限 | AuditEvent[] |
+| `GET /health` | 无 | 服务状态 |
+
+接口层不需要暴露所有内部字段，但字段语义要和数据模型保持一致，否则前端、编排层和审计查询会各说各话。
+
 ## POST /chat
 
 ```json
