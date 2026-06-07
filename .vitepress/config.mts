@@ -576,6 +576,7 @@ export default withMermaid(defineConfig({
       '/agent-selection/': [
         { text: '← 返回首页', link: '/' },
         { text: '专区总览', link: '/agent-selection/' },
+        { text: '官方资源速查', link: '/agent-selection/resources' },
         {
           text: '基础判断',
           collapsed: false,
