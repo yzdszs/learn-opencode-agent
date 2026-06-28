@@ -144,3 +144,24 @@ bun run start
 ```bash
 caddy run --config /Caddyfile --adapter caddyfile
 ```
+
+### Vercel 部署
+
+这个仓库是 VitePress 静态站点，适合直接部署到 Vercel。
+
+1. 将代码推送到 GitHub。
+2. 在 Vercel 中导入这个仓库。
+3. 使用以下构建配置：
+   - Install Command: `bun install`
+   - Build Command: `bun run build`
+   - Output Directory: `.vitepress/dist`
+4. 点击 Deploy 即可。
+
+也可以在仓库根目录添加 [vercel.json](vercel.json) 进行显式配置：
+
+```json
+{
+  "buildCommand": "bun run build",
+  "outputDirectory": ".vitepress/dist"
+}
+```
