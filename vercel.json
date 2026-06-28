@@ -2,5 +2,102 @@
   "version": 2,
   "installCommand": "bun install",
   "buildCommand": "bun run build",
-  "outputDirectory": ".vitepress/dist"
+  "outputDirectory": ".vitepress/dist",
+  "redirects": [
+    {
+      "source": "/agent-selection/07-scenario-playbook",
+      "destination": "/agent-selection/06-scenario-playbook",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/08-poc-evaluation",
+      "destination": "/agent-selection/07-poc-evaluation",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/09-build-vs-buy",
+      "destination": "/agent-selection/08-build-vs-buy",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/10-enterprise-copilot-stack",
+      "destination": "/agent-selection/09-enterprise-copilot-stack",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/11-codebase-agent-selection",
+      "destination": "/agent-selection/10-codebase-agent-selection",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/12-research-agent-selection",
+      "destination": "/agent-selection/11-research-agent-selection",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/13-customer-support-knowledge-agent",
+      "destination": "/agent-selection/12-customer-support-knowledge-agent",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/16-model-routing-selection",
+      "destination": "/agent-selection/13-model-routing-selection",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/19-vector-database-selection",
+      "destination": "/agent-selection/15-vector-database-selection",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/20-retrieval-patterns",
+      "destination": "/agent-selection/16-retrieval-patterns",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/21-enterprise-knowledge-permission",
+      "destination": "/agent-selection/18-enterprise-knowledge-permission",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/23-mcp-tool-selection",
+      "destination": "/agent-selection/19-mcp-tool-selection",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/25-text-to-sql-agent",
+      "destination": "/agent-selection/20-text-to-sql-agent",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/27-observability-trace-replay-eval",
+      "destination": "/agent-selection/21-observability-trace-replay-eval",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/28-security-permission-selection",
+      "destination": "/agent-selection/22-security-permission-selection",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/29-cost-latency-selection",
+      "destination": "/agent-selection/23-cost-latency-selection",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/30-fallback-strategy",
+      "destination": "/agent-selection/24-fallback-strategy",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/31-embedding-models",
+      "destination": "/agent-selection/14-embedding-models",
+      "permanent": true
+    },
+    {
+      "source": "/agent-selection/35-reranker-models",
+      "destination": "/agent-selection/17-reranker-models",
+      "permanent": true
+    }
+  ]
 }
